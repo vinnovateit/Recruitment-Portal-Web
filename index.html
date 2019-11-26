@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, ,initial-scale=1.0,shrink-to-fit=yes">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="first_trial.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-    <body>
+    <body >
       <!--JQUERY-->
       <script src="first_trial.js">
       </script>
@@ -37,22 +37,23 @@
 
 
         <!--question paper part-->
-        <div class="container " id="c1">
+        <div class="container " id="c1" style="position:relative;" >
             <div class="row">
-            <div class="col-1 col-lg-1 " style="background: transparent linear-gradient(268deg, #E37682 0%,#5F4D93  100%) 0% 0% no-repeat padding-box;
+            <div class="col-xs-1half " style="background: transparent linear-gradient( #5F4D93,#E37682  ) 0% 0% no-repeat padding-box;
             box-shadow: 0px 3px 6px #00000029;
             opacity: 1;border-bottom-left-radius: 25px;border-top-left-radius: 25px;
             "> 
-              <p class="points" id="1" >Q1</p>
-              <p class="points" id="2">Q2</p>
-              <p class="points" id='3'>Q3</p>
-              <p class="points" id='4'>Q4</p>
-              <p class="points" id='5'>Q5</p>
-              <p class="points" id='6'>Q6</p>
-              <p class="points" id='7'>Q7</p>
-              <p class="points" id='8'>Q8</p>
-              <p class="points" id='9'>Q9</p>
-              <p class="points" id='10'>Q10</p>
+            <p style="margin-top:2%"></p>
+              <div class="points" id="1" >Q1</div><br>
+              <div class="points" id="2">Q2</div><br>
+              <div class="points" id='3'>Q3</div><br>
+              <div class="points" id='4'>Q4</div><br>
+              <div class="points" id='5'>Q5</div><br>
+              <div class="points" id='6'>Q6</div><br>
+              <div class="points" id='7'>Q7</div><br>
+              <div class="points" id='8'>Q8</div><br>
+              <div class="points" id='9'>Q9</div><br>
+              <div class="points" id='10'>Q10</div><br>
             
             
             </div>
@@ -61,19 +62,19 @@
             border-radius: 20px;
             opacity: 1; ">
               
-              <p class="pointe" id='qd' > </p><br>
-              <p id='op1' class="point" ></p><br>
-              <p id='op2' class="point" ></p><br>
-              <p id='op3' class="point" ></p><br>
-              <p id='op4' class="point" ></p><br>
+              <div class="point" id='qd' > </div><br><br><br>
+              <div id='op1' class="point" ></div><br><br><br>
+              <div id='op2' class="point" ></div><br><br><br>
+              <div id='op3' class="point" ></div><br><br><br>
+              <div id='op4' class="point" ></div><br>
               
     
              </div>
             </div>
           </div>
                   <!--questoin choosing part-->
-      <div class="container" style="position:relative;margin-bottom:25%;">
-               <div class="card-columns" style="margin-top:20%">
+      <div class="container" id='wedd'style='position:fixed' >
+               <div class="card-columns" >
             <div class="card bg-primary" id="ai" style="cursor:pointer">
               <div class="card-body text-center">
                 <p class="card-text">AI/ML</p>

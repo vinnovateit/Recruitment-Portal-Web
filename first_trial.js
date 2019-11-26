@@ -206,6 +206,7 @@ $("#c1").hide();
    
     $("#1").click(function(){
        $("#1").css({backgroundColor:'#5F4D93'})
+       
        document.getElementById("qd").innerHTML=ques[0];
        document.getElementById("op1").innerHTML=quesops[0];
        document.getElementById("op2").innerHTML=quesops[1];
