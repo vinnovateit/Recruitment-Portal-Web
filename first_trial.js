@@ -201,7 +201,7 @@ $("#ad").click(function(){
 
 })
 $("#c1").hide();
- { document.getElementById("qd").innerHTML="select question from the list";
+ { document.getElementById("qd").innerHTML="ASSSUMMIINGNGNGNGN AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONGGGGGGGG ASSSS QQUESTIONNNNNNNNNNNNNNNNNN HERER";
 
    
     $("#1").click(function(){
