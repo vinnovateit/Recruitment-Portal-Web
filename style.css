@@ -10,7 +10,7 @@
 
 .navbar{
     
-background: transparent linear-gradient(268deg, #E37682 0%,#5F4D93  100%) 0% 0% no-repeat padding-box;
+background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;
 box-shadow: 0px 3px 6px #00000029;
 opacity: 1;
 
@@ -18,8 +18,10 @@ opacity: 1;
 .container {
     
         margin-top:10%;
-    position:relative;
+    position:fixed;
     border-radius: 25px;
+    overflow: hidden;
+    
 }
 .point
 {cursor:pointer;
@@ -42,4 +44,42 @@ opacity: 1;
     padding-bottom: 5%;
 
 }
+@media screen and (min-width: 700px) {
+    #wedd{
+        margin-left:15%;
+        margin-top:12%;
+        margin-right:20%;
+    } 
+       .col-xs-1half{
+        width:4%;
+    }
+    
 
+  }
+  @media screen and (min-width:300px) and (max-width:600px)
+  {
+
+    .col-xs-1half{
+        width:7%;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    #wedd{
+
+        margin-left:12%;
+        margin-top:15%;
+        margin-right:20%;
+    }
+   
+
+    
+  }
+  
+  
+    
+
+    
+
+    
+  
