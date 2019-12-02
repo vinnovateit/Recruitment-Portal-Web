@@ -18,6 +18,7 @@ header {
 #head {
     position: absolute;
     top: 25%;
+    font-family:  "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system;
     left: 2%;
     color: white;
     letter-spacing: 0.1em;

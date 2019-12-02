@@ -4,7 +4,7 @@
 
 /* Text Fields */
 .pure-material-textfield-outlined {
-    --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    --pure-material-safari-helper1:  #5F4D93;
     position: relative;
     display: inline-block;
     padding-top: 6px;
@@ -34,7 +34,7 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    caret-color:  #5F4D93;
     transition: border 0.2s, box-shadow 0.2s;
 }
 
@@ -129,7 +129,7 @@
 /* Focus */
 .pure-material-textfield-outlined>input:focus,
 .pure-material-textfield-outlined>textarea:focus {
-    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-color:  #5F4D93;
     border-top-color: transparent;
     box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1), inset 0 -1px var(--pure-material-safari-helper1);
     outline: none;
@@ -137,7 +137,7 @@
 
 .pure-material-textfield-outlined>input:focus+span,
 .pure-material-textfield-outlined>textarea:focus+span {
-    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    color:  #5F4D93;
 }
 
 .pure-material-textfield-outlined>input:focus+span::before,
@@ -262,18 +262,18 @@
     border-radius: 50%;
     width: 10px;
     height: 10px;
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color:  #5F4D93;
     transform: translate(5px, 5px) scale(0);
     transition: transform 0.2s;
 }
 
 /* Checked */
 .pure-material-radio>input:checked {
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color:  #5F4D93;
 }
 
 .pure-material-radio>input:checked+span::before {
-    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-color:  #5F4D93;
 }
 
 .pure-material-radio>input:checked+span::after {
@@ -301,7 +301,7 @@
 }
 
 .pure-material-radio>input:active+span::before {
-    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-color:  #5F4D93;
 }
 
 /* Disabled */
@@ -337,7 +337,7 @@
     text-overflow: ellipsis;
     text-transform: uppercase;
     color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color:  #5F4D93;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
@@ -505,13 +505,13 @@
 /* Checked, Indeterminate */
 .pure-material-checkbox>input:checked,
 .pure-material-checkbox>input:indeterminate {
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color:  #5F4D93;
 }
 
 .pure-material-checkbox>input:checked+span::before,
 .pure-material-checkbox>input:indeterminate+span::before {
-    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-color:  #5F4D93;
+    background-color:  #5F4D93;
 }
 
 .pure-material-checkbox>input:checked+span::after,
@@ -545,7 +545,7 @@
 }
 
 .pure-material-checkbox>input:active+span::before {
-    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-color:  #5F4D93;
 }
 
 .pure-material-checkbox>input:checked:active+span::before {
@@ -615,7 +615,7 @@
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    color:  #5F4D93;
     background-color: transparent;
     font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
