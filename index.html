@@ -23,12 +23,11 @@
 
 	div
 	{
-		/*border :2px solid red;*/
+		border :2px solid red;
 	}
 	body
 	{
 		background-image: url('D:/MY PROJECTS/WEB/Recruitment-Portal-Web/images/kd3.png');
-		z-index: -6;
 	}
 	#c1
 	{
@@ -72,8 +71,8 @@
 		text-align: center;
 		font-size: 22px;
 		font-weight: 500;
-		background: rgb(217,190,202);
-		background: linear-gradient(90deg, rgba(217,190,202,1) 0%, rgba(218,192,209,1) 30%, rgba(214,179,235,1) 45%, rgba(218,181,181,1) 100%);
+		/*background: rgb(217,190,202);*/
+		/*background: linear-gradient(90deg, rgba(217,190,202,1) 0%, rgba(218,192,209,1) 30%, rgba(214,179,235,1) 45%, rgba(218,181,181,1) 100%);*/
             box-shadow: 0px 3px 6px #00000029;
             width: 10%;
         border-radius: 22px;
@@ -81,9 +80,22 @@
         display: inline;
         padding: 10px;
 	}
+	#yum_yum
+	{
+		margin-left: 12%;
+	}
+	#hello
+	{
+		text-align: center;
+		padding-bottom: 30px;
+	}
+	#aicard
+	{
+		display: inline-block;
+	}
 </style>
 </head>
-    <body >
+    <body>
       <!--JQUERY-->
       <script src="first_trial.js">
       </script>
@@ -145,8 +157,77 @@
             </div>
           </div>
                   <!--questoin choosing part-->
-      <div class="container" id='wedd'style='position:fixed' >
-               <div class="card-columns" >
+      	    <div class="container" id="yum_yum">
+	      		<div class="row">
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\ai.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">AI/ML</h5>
+						    <p class="card-text">In computer science, artificial intelligence (AI), sometimes called machine intelligence, is intelligence demonstrated by machines.</p>
+						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\and.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Andriod Dev</h5>
+						    <p class="card-text">Android software development is the process by which new applications are created for devices running the Android operating system.</p>
+						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      		</div>	      		
+	      		<div class="row">
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\web.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Web Dev</h5>
+						    <p class="card-text">Web development is the work involved in developing a web site for the Internet.</p>
+						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      			<div class="col" id="hello">
+	      				<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\iot.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">IOT</h5>
+						    <p class="card-text">The Internet of Things (IoT) is a system of interrelated computing devices.</p>
+						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      				</div>
+	      			</div>
+	      		</div>	      		
+	      		<div class="row">
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\man.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Managment</h5>
+						    <p class="card-text">Management (or managing) is the administration of an organization.</p>
+						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\des.png" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Design</h5>
+						    <p class="card-text">A design is a plan or specification for the construction of an object or system.</p>
+						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      		</div>	
+      		</div>
+<!--       <div class="container" id='wedd'style='position:fixed' >
             <div class="card bg-primary" id="ai" style="cursor:pointer">
               <div class="card-body text-center">
                 <p class="card-text">AI/ML</p>
@@ -154,7 +235,7 @@
             </div>
             <div class="card bg-warning" id="wd"style="cursor:pointer">
               <div class="card-body text-center">
-                <p class="card-text">Web Developement</p>
+                <p class="card-text">Web Dev</p>
               </div>
             </div>
             <div class="card bg-success"id="ad" style="cursor:pointer">
@@ -177,7 +258,6 @@
                 <p class="card-text">Designing</p>
               </div>
             </div>
-          </div>
-   </div>
+   </div> -->
      </body>
 </html>
