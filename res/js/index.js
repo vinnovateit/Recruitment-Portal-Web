@@ -1,7 +1,7 @@
 
 $("#aiBtn").click(function () {
-    isTextAttempted("AI")
-    // startTest("AI")
+    // isTextAttempted("AI")
+    startTest("AI")
 });
 
 $("#androidBtn").click(function () {
