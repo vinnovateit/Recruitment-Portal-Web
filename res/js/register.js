@@ -69,7 +69,7 @@ function onSignupClick() {
 function signUpUser(args) {
 
     firebase.auth().createUserWithEmailAndPassword(args.emailVal, args.passVal).then((user) => {
-        $(".progress").html("Signed Up Successfully <br> Please wait while we log you in...")
+        saveUserDataToFirestore(args)
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -96,13 +96,14 @@ function saveUserDataToFirestore(args) {
     })
         .then(function () {
             //TODO Show successfully submitted bug report show thank you message just after the button
-            saveUserDataToFirestore(args)
+            $("#progressText").html("Signed Up...")
             Notify({
                 content: 'Signed Up Successfully. Please wait while we redirect you.',
                 color: 'green',
                 rounded: true,
                 timeout: 2000
             });
+            window.location = "/"
         })
         .catch(function (error) {
             var errorMessage = error.message;
