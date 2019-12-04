@@ -193,7 +193,7 @@ border-radius: 25px;
 
 .div1 { grid-area: 1 / 1 / 11 / 7;
 	border-radius: 25px;	 
-box-shadow: 5px 0px 3px -2px #888;}
+box-shadow: 3px 0.1px 3px -2px #888;}
 .div2 { 
 		grid-area: 1 / 1 / 11 / 2;
 		margin: 0px auto;
@@ -265,6 +265,7 @@ padding-right: 50px;
 	padding-top: 10px;
 
 	}
+.div19 { grid-area: 9 / 6 / 11 / 7; }
 
 .side_bar
 {	
@@ -275,6 +276,9 @@ padding-right: 50px;
 	max-width: 60%;
 	box-shadow: 3px 3px 6px #00000029;
             opacity: 1;
+    	-webkit-box-shadow: 0 5px -3px 6px black;
+	   -moz-box-shadow: 0 5px -3px 6px black;
+	        box-shadow: 0 5px -3px 6px black;
 }
 .ques_boxes
 {
@@ -283,6 +287,11 @@ padding-right: 50px;
 	font-size: 16px;
 	text-align: center;
 	max-width: 60%;
+
+}
+.ques_boxes:hover
+{
+	color: #BDC3C7;
 }
 .options
 {
@@ -291,11 +300,24 @@ padding-right: 50px;
             opacity: 1;
             width: 80%;
             padding: 15px;
-
+    border-radius: 3px;
+}
+.options:hover
+{
+	background-color:#D7BDE2   ;
+	color:#5F4D93 ;
+	font-weight: 600;
 }
 #last_option
 {
 	margin-bottom: 10px;
+}
+#arrow
+{
+	color: #5F4D93;
+	/*border: 2px solid black;*/
+	font-size: 10px;
+	margin: auto auto;
 }
 </style>
 
@@ -334,6 +356,10 @@ padding-right: 50px;
 		Every option tends to preserve its state of motion.
 	</div>
 </div>
+<div class="div19" id="arrow">
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAkElEQVRIie3UsQ1BURQG4M97plAQFYlGTGAQjREMYAMDGEBjB6PoFCISpVrxSpT3XJLztSe5f3Ly30NK6d+1Bd9eo8H107ApGDzECfOCGV/tcMcsOriHPW6YRoc3OOCCcXR4iyPOGEAfE2x0aynpiZGucMuSrf4Jb6uOUKVc1b5TlQOyxUOFk7nCIjo0pRTnBeFwFGP2/meFAAAAAElFTkSuQmCC">
+
+ </div>
 </div>
 
 <!--         <div class="container " id="c1" style="position:relative;" >
