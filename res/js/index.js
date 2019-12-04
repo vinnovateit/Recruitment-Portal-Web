@@ -77,7 +77,7 @@ function startTest(testType) {
 
 function setQuestionsData(querySnapshot) {
     i = 0;
-    numArr = [1, 2, 3, 4, 5, 6,7,8,9,10]
+    numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     numArr = shuffle(numArr)
     for (i = 0; i < numArr.length; i++) {
         $("#ques").html(querySnapshot.docs[0].data().question)
@@ -85,8 +85,9 @@ function setQuestionsData(querySnapshot) {
         $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
         $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
         $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
-        
-        addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), i, querySnapshot.docs[numArr[i]].id);
+
+        console.log(i + "  => " + numArr[i])
+        addListenersToQuesBtn(querySnapshot.docs[numArr[i]-1].data(), i, querySnapshot.docs[numArr[i]-1].id);
     }
 
 
@@ -109,7 +110,7 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
         $("#opt3").html(doc.option.opt3)
         $("#opt4").html(doc.option.opt4)
 
-        ("#ques").addClass(docId)
+            $("#ques").addClass(docId)
 
         if (localStorage.getItem(selectedQuestion) != "")
             otpAnswer($("#opt" + localStorage.getItem(selectedQuestion)))
