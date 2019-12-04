@@ -207,9 +207,16 @@ function startTimer(till = 11) {
     }, 1000);
 }
 
-
+// localStorage.setItem("domain","")
 onVisibilityChange(function (visible) {
-    console.log('the page is now', visible ? 'focused' : 'unfocused');
+    if (!visible) {
+        if (localStorage.getItem("domain") != "") {
+            alert("Uh oh! You moved out. Cancelling Test.")
+            localStorage.setItem("domain", "")
+            location.reload(true);
+        }
+    }
+    // console.log('the page is now', visible ? 'focused' : 'unfocused');
 });
 
 
