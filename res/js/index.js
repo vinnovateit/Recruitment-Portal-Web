@@ -33,6 +33,7 @@ function startTest(testType) {
             setQuestionsData(querySnapshot);
             localStorage.setItem("domain", testType);
             startTimer(1)
+            $("#text_box_heading").html(testType)
             // querySnapshot.forEach(function (doc) {
             //     // doc.data() is never undefined for query doc snapshots
             //     console.log(doc.id, " => ", doc.data());
@@ -208,16 +209,16 @@ function startTimer(till = 11) {
 }
 
 // localStorage.setItem("domain","")
-onVisibilityChange(function (visible) {
-    if (!visible) {
-        if (localStorage.getItem("domain") != "") {
-            alert("Uh oh! You moved out. Cancelling Test.")
-            localStorage.setItem("domain", "")
-            location.reload(true);
-        }
-    }
-    // console.log('the page is now', visible ? 'focused' : 'unfocused');
-});
+// onVisibilityChange(function (visible) {
+//     if (!visible) {
+//         if (localStorage.getItem("domain") != "") {
+//             alert("Uh oh! You moved out. Cancelling Test.")
+//             localStorage.setItem("domain", "")
+//             location.reload(true);
+//         }
+//     }
+//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
+// });
 
 
 function onVisibilityChange(callback) {
@@ -272,9 +273,28 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         // fetchAndDisplayOldJudgement();
+        setUserDisplayName(user.uid)
     } else {
         // No user is signed in.
         // or user signed out
         window.location.href = "/signUp.html?isLoggedIn=false";
     }
 });
+
+function setUserDisplayName(uid) {
+    db = firebase.firestore()
+    var docRef = db.collection("users").doc(uid);
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data().name);
+            $("#logOut").html("LogOut, " + doc.data().name+ "")
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+
+}
