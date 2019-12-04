@@ -72,6 +72,7 @@ selectedQuestion = "q1"
 function addListenersToQuesBtn(doc, quesBtnNo) {
 
     $("#q" + quesBtnNo).click(() => {
+        optReset([1, 2, 3, 4])
         selectedQuestion = "q" + quesBtnNo
         console.log(quesBtnNo)
         $("#ques").html(doc.question)
@@ -79,6 +80,9 @@ function addListenersToQuesBtn(doc, quesBtnNo) {
         $("#opt2").html(doc.option.opt2)
         $("#opt3").html(doc.option.opt3)
         $("#opt4").html(doc.option.opt4)
+
+        if (localStorage.getItem(selectedQuestion) != "")
+            otpAnswer($("#opt" + localStorage.getItem(selectedQuestion)))
     })
 }
 
@@ -137,43 +141,34 @@ function saveAnswers(domain, selectedAnswers) {
     });
 }
 $("#opt1").click(() => {
-    localStorage.setItem(selectedQuestion, "a");
+    localStorage.setItem(selectedQuestion, "1");
     optReset([2, 3, 4])
-    $("#opt1").css({
-        "background-color": "#D7BDE2",
-        "color": "#5F4D93",
-        "font-weight": 600
-    })
+    otpAnswer($("#opt1"))
 })
 $("#opt2").click(() => {
-    localStorage.setItem(selectedQuestion, "b");
+    localStorage.setItem(selectedQuestion, "2");
     optReset([1, 3, 4])
-    $("#opt2").css({
-        "background-color": "#D7BDE2",
-        "color": "#5F4D93",
-        "font-weight": 600
-    })
+    otpAnswer($("#opt2"))
 })
 $("#opt3").click(() => {
-    localStorage.setItem(selectedQuestion, "c");
+    localStorage.setItem(selectedQuestion, "3");
     optReset([1, 2, 4])
-    $("#opt3").css({
-        "background-color": "#D7BDE2",
-        "color": "#5F4D93",
-        "font-weight": 600
-    })
+    otpAnswer($("#opt3"))
 })
 $("#opt4").click(() => {
 
-    localStorage.setItem(selectedQuestion, "d");
+    localStorage.setItem(selectedQuestion, "4");
     optReset([1, 2, 3])
-    $("#opt4").css({
+    otpAnswer($("#opt4"))
+})
+
+function otpAnswer(ele) {
+    ele.css({
         "background-color": "#D7BDE2",
         "color": "#5F4D93",
         "font-weight": 600
     })
-})
-
+}
 function optReset(arr) {
 
     for (i = 0; i < arr.length; i++) {
