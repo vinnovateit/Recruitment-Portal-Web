@@ -31,11 +31,11 @@ function startTest(testType) {
         .get()
         .then(function (querySnapshot) {
             setQuestionsData(querySnapshot);
-            querySnapshot.forEach(function (doc) {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+            // querySnapshot.forEach(function (doc) {
+            //     // doc.data() is never undefined for query doc snapshots
+            //     console.log(doc.id, " => ", doc.data());
 
-            });
+            // });
         })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
@@ -46,27 +46,31 @@ function startTest(testType) {
 function setQuestionsData(querySnapshot) {
     i = 0;
 
-    for (i = 1; i <= 1; i++) {
+    for (i = 1; i <= 2; i++) {
         $("#ques").html(querySnapshot.docs[0].data().question)
 
         $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
         $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
         $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
         $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
+
+        addListenersToQuesBtn(querySnapshot.docs[i-1].data(), i);
     }
 
 
-    $("#domains").css("display","none")
 
-    $("#questions").css("display","block")
+    $("#domains").css("display", "none")
+
+    $("#questions").css("display", "block")
+}
+function addListenersToQuesBtn(doc, quesBtnNo) {
     
-    // querySnapshot.forEach(function (doc) {
-    //     // doc.data() is never undefined for query doc snapshots
-
-    //     $("#ques").html(doc.data().questions)
-
-
-    //     i += 1;
-
-    // });
+    $("#q" + quesBtnNo).click(() => {
+        alert("sj")
+        $("#ques").html(doc.question)
+        $("#opt1").html(doc.option.opt1)
+        $("#opt2").html(doc.option.opt2)
+        $("#opt3").html(doc.option.opt3)
+        $("#opt4").html(doc.option.opt4)
+    })
 }
