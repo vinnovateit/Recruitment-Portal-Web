@@ -49,7 +49,7 @@ function startTest(testType) {
 function setQuestionsData(querySnapshot) {
     i = 0;
 
-    for (i = 1; i <= 4; i++) {
+    for (i = 1; i <= 2; i++) {
         $("#ques").html(querySnapshot.docs[0].data().question)
 
         $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
@@ -227,15 +227,15 @@ function startTimer(till = 11) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Output the result in an element with id="demo"
-        // document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-        //     + minutes + "m " + seconds + "s ";
+        document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
 
         console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")
 
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
-            // document.getElementById("timer").innerHTML = "Time Out!";
+            document.getElementById("timer").innerHTML = "Time Out!";
             submitAnswers()
 
         }
