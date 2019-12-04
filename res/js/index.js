@@ -1,4 +1,6 @@
 
+
+
 $("#aiBtn").click(function () {
     // isTextAttempted("AI")
     startTest("AI")
@@ -47,10 +49,10 @@ function isTextAttempted(testType) {
 
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            // console.log("No such document!");
         }
     }).catch(function (error) {
-        console.log("Error getting document:", error);
+        // console.log("Error getting document:", error);
     });
 
 
@@ -58,7 +60,15 @@ function isTextAttempted(testType) {
 
 
 function startTest(testType) {
-    showMessage("Starting Test. Please wait...", 2400)
+    if (testType == "Aptitude") {
+        testType = "AI"
+        showMessage("Starting Compulsory Aptitude Test. Please wait...", 2700)
+    } else {
+        showMessage("Starting Test. Please wait...", 2400)
+    }
+
+
+
 
     var db = firebase.firestore();
     db.collection("backend/Questions/" + testType)
@@ -71,10 +81,11 @@ function startTest(testType) {
             $("#text_box_heading").html(testType)
         })
         .catch(function (error) {
-            console.log("Error getting documents: ", error);
+            // console.log("Error getting documents: ", error);
         });
 }
 
+questIdObj = {}
 function setQuestionsData(querySnapshot) {
     i = 0;
     numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -86,9 +97,13 @@ function setQuestionsData(querySnapshot) {
         $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
         $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
 
-        console.log(i + "  => " + numArr[i])
-        addListenersToQuesBtn(querySnapshot.docs[numArr[i]-1].data(), i, querySnapshot.docs[numArr[i]-1].id);
+        // console.log(i + "  => " + numArr[i])
+        addListenersToQuesBtn(querySnapshot.docs[numArr[i] - 1].data(), i, querySnapshot.docs[numArr[i] - 1].id);
+
+        questIdObj["q" + i] = querySnapshot.docs[numArr[i] - 1].id
     }
+
+    // alert(JSON.stringify(questIdObj))
 
 
     $("#domains").css("display", "none")
@@ -103,14 +118,14 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
     $("#q" + quesBtnNo).click(() => {
         optReset([1, 2, 3, 4])
         selectedQuestion = "q" + quesBtnNo
-        console.log(quesBtnNo)
+        // console.log(quesBtnNo)
         $("#ques").html(doc.question)
         $("#opt1").html(doc.option.opt1)
         $("#opt2").html(doc.option.opt2)
         $("#opt3").html(doc.option.opt3)
         $("#opt4").html(doc.option.opt4)
 
-            $("#ques").addClass(docId)
+        // $("#ques").addClass(docId)
 
         if (localStorage.getItem(selectedQuestion) != "")
             otpAnswer($("#opt" + localStorage.getItem(selectedQuestion)))
@@ -136,7 +151,7 @@ function submitAnswers() {
         selectedAnswers["q" + i] = localStorage.getItem("q" + i);
     }
     domain = localStorage.getItem("domain");
-    // alert(JSON.stringify(selectedAnswers) + domain)
+    alert(JSON.stringify(selectedAnswers) + domain)
     saveAnswers(domain, selectedAnswers)
 }
 
@@ -163,7 +178,7 @@ function saveAnswers(domain, selectedAnswers) {
         location.reload(true)
     }).catch(function (error) {
         var errorMessage = error.message;
-        console.error("Error writing document: ", error);
+        // console.error("Error writing document: ", error);
         Notify({
             content: errorMessage,
             color: 'red',
@@ -174,23 +189,23 @@ function saveAnswers(domain, selectedAnswers) {
     });
 }
 $("#opt1").click(() => {
-    localStorage.setItem(selectedQuestion, "1");
+    localStorage.setItem(questIdObj[selectedQuestion], "1");
     optReset([2, 3, 4])
     otpAnswer($("#opt1"))
 })
 $("#opt2").click(() => {
-    localStorage.setItem(selectedQuestion, "2");
+    localStorage.setItem(questIdObj[selectedQuestion], "2");
     optReset([1, 3, 4])
     otpAnswer($("#opt2"))
 })
 $("#opt3").click(() => {
-    localStorage.setItem(selectedQuestion, "3");
+    localStorage.setItem(questIdObj[selectedQuestion], "3");
     optReset([1, 2, 4])
     otpAnswer($("#opt3"))
 })
 $("#opt4").click(() => {
 
-    localStorage.setItem(selectedQuestion, "4");
+    localStorage.setItem(questIdObj[selectedQuestion], "4");
     optReset([1, 2, 3])
     otpAnswer($("#opt4"))
 })
@@ -215,7 +230,7 @@ function optReset(arr) {
 }
 
 function shuffle(a) {
-    console.log(a)
+    // console.log(a)
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
@@ -223,7 +238,7 @@ function shuffle(a) {
         a[i] = a[j];
         a[j] = x;
     }
-    console.log(a)
+    // console.log(a)
     return a;
 }
 
@@ -232,7 +247,7 @@ function startTimer(till = 11) {
     var now = new Date();
     now.setMinutes(now.getMinutes() + till); // timestamp
     now = new Date(now); // Date object
-    console.log(now);
+    // console.log(now);
 
     // Set the date we're counting down to
     var countDownDate = new Date(now).getTime();
@@ -253,10 +268,7 @@ function startTimer(till = 11) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Output the result in an element with id="demo"
-        document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ";
-
-        console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")
+        document.getElementById("timer").innerHTML = "Time Left: " + minutes + "m " + seconds + "s ";
 
         // If the count down is over, write some text 
         if (distance < 0) {
@@ -333,7 +345,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         // fetchAndDisplayOldJudgement();
-        setUserDisplayName(user.uid)
+        setUserDisplayNameAndCheckAptTest(user.uid)
     } else {
         // No user is signed in.
         // or user signed out
@@ -341,17 +353,20 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-function setUserDisplayName(uid) {
+function setUserDisplayNameAndCheckAptTest(uid) {
     db = firebase.firestore()
     var docRef = db.collection("users").doc(uid);
 
     docRef.get().then(function (doc) {
         if (doc.exists) {
-            console.log("Document data:", doc.data().name);
+            if (doc.data().apt == "" || doc.data().apt == undefined) {
+                // startTest("Aptitude")
+                isTextAttempted("Aptitude")
+            }
             $("#logOut").html("LogOut, " + doc.data().name + "")
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            // console.log("No such document!");
         }
     }).catch(function (error) {
         console.log("Error getting document:", error);
