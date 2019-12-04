@@ -97,7 +97,7 @@ display: none;
 .right-footer {
     position: fixed;
     padding: 14px;
-    bottom: 14px;
+    bottom: 7%;
     color: #555;
     background-color: #eee;
     font-family: "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system;
