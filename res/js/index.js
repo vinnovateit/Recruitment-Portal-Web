@@ -9,19 +9,19 @@ $("#androidBtn").click(function () {
 });
 
 $("#webBtn").click(function () {
-    startTest("Web")
+    isTextAttempted("Web")
 });
 
 $("#iotBtn").click(function () {
-    startTest("IOT")
+    isTextAttempted("IOT")
 });
 
 $("#managmentBtn").click(function () {
-    startTest("Management")
+    isTextAttempted("Management")
 });
 
 $("#designBtn").click(function () {
-    startTest("Design")
+    isTextAttempted("Design")
 });
 
 for (i = 1; i <= 10; i++) {
