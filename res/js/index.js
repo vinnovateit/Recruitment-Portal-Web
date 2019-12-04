@@ -27,10 +27,6 @@ $("#designBtn").click(function () {
     isTextAttempted("Design")
 });
 
-for (i = 1; i <= 10; i++) {
-    localStorage.setItem("q" + i, "");
-}
-
 function isTextAttempted(testType) {
     let userUid = "Anonymous";
     if (firebase.auth().currentUser != null) {
@@ -88,9 +84,10 @@ function startTest(testType) {
 questIdObj = {}
 function setQuestionsData(querySnapshot) {
     i = 0;
-    numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     numArr = shuffle(numArr)
     for (i = 0; i < numArr.length; i++) {
+        quesEleId = i + 1
         $("#ques").html(querySnapshot.docs[0].data().question)
         $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
         $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
@@ -98,9 +95,12 @@ function setQuestionsData(querySnapshot) {
         $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
 
         // console.log(i + "  => " + numArr[i])
-        addListenersToQuesBtn(querySnapshot.docs[numArr[i] - 1].data(), i, querySnapshot.docs[numArr[i] - 1].id);
+        addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id);
 
-        questIdObj["q" + i] = querySnapshot.docs[numArr[i] - 1].id
+        questIdObj["q" + quesEleId] = querySnapshot.docs[numArr[i]].id
+
+        localStorage.setItem(questIdObj["q" + quesEleId], "");
+
     }
 
     // alert(JSON.stringify(questIdObj))
@@ -118,7 +118,7 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
     $("#q" + quesBtnNo).click(() => {
         optReset([1, 2, 3, 4])
         selectedQuestion = "q" + quesBtnNo
-        // console.log(quesBtnNo)
+        console.log(quesBtnNo)
         $("#ques").html(doc.question)
         $("#opt1").html(doc.option.opt1)
         $("#opt2").html(doc.option.opt2)
@@ -127,15 +127,18 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 
         // $("#ques").addClass(docId)
 
-        if (localStorage.getItem(selectedQuestion) != "")
-            otpAnswer($("#opt" + localStorage.getItem(selectedQuestion)))
+
+        if (localStorage.getItem(questIdObj[selectedQuestion]) != "") {
+            console.log(questIdObj[selectedQuestion] + "#opt" + localStorage.getItem(questIdObj[selectedQuestion]))
+            otpAnswer($("#opt" + localStorage.getItem(questIdObj[selectedQuestion])))
+        }
     })
 }
 
 $("#arrow").click(() => {
 
 
-    if (selectedQuestion == "q2") {
+    if (selectedQuestion == "q10") {
         if (confirm("Are you sure you want to submit your answes?")) {
             submitAnswers()
         }
@@ -147,11 +150,14 @@ $("#arrow").click(() => {
 function submitAnswers() {
     showMessage("Submitting your answers. Please wait...", 2000)
     selectedAnswers = {}
+    alert(JSON.stringify(questIdObj))
     for (i = 1; i <= 10; i++) {
-        selectedAnswers["q" + i] = localStorage.getItem("q" + i);
+
+        selectedAnswers[questIdObj["q" + i]] = localStorage.getItem(questIdObj["q" + i]);
+        // console.log(selectedAnswers[questIdObj["q" + i]])
     }
     domain = localStorage.getItem("domain");
-    alert(JSON.stringify(selectedAnswers) + domain)
+    // alert(JSON.stringify(selectedAnswers) + domain)
     saveAnswers(domain, selectedAnswers)
 }
 
