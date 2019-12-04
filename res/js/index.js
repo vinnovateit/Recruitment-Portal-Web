@@ -47,12 +47,12 @@ function setQuestionsData(querySnapshot) {
     i = 0;
 
     for (i = 1; i <= 2; i++) {
-        $("#ques").html(querySnapshot.docs[0].data().question)
+        $("#qd").html(querySnapshot.docs[0].data().question)
 
-        $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
-        $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
-        $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
-        $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
+        $("#op1").html(querySnapshot.docs[0].data().option.opt1)
+        $("#op2").html(querySnapshot.docs[0].data().option.opt2)
+        $("#op3").html(querySnapshot.docs[0].data().option.opt3)
+        $("#op4").html(querySnapshot.docs[0].data().option.opt4)
 
         addListenersToQuesBtn(querySnapshot.docs[i-1].data(), i);
     }
@@ -65,12 +65,12 @@ function setQuestionsData(querySnapshot) {
 }
 function addListenersToQuesBtn(doc, quesBtnNo) {
     
-    $("#q" + quesBtnNo).click(() => {
+    $("#yum_" + quesBtnNo).click(() => {
         alert("sj")
-        $("#ques").html(doc.question)
-        $("#opt1").html(doc.option.opt1)
-        $("#opt2").html(doc.option.opt2)
-        $("#opt3").html(doc.option.opt3)
-        $("#opt4").html(doc.option.opt4)
+        $("#qd").html(doc.question)
+        $("#op1").html(doc.option.opt1)
+        $("#op2").html(doc.option.opt2)
+        $("#op3").html(doc.option.opt3)
+        $("#op4").html(doc.option.opt4)
     })
 }
