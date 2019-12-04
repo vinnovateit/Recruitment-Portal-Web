@@ -117,7 +117,7 @@ function saveAnswers(domain, selectedAnswers) {
     data = {}
     data[domain] = selectedAnswers
     alert(userUid)
-    db.collection("users").doc(userUid).add(
+    db.collection("users").doc(userUid).update(
         data
     ).then(function () {
         //TODO Show successfully submitted bug report show thank you message just after the button

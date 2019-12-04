@@ -166,7 +166,7 @@ function onLoginClick() {
                 rounded: true,
                 timeout: 2000
             })
-            window.location = "/"
+            window.location = "/index.html"
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
