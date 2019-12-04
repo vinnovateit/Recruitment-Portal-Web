@@ -64,12 +64,13 @@ function setQuestionsData(querySnapshot) {
     $("#questions").css("display", "grid")
 }
 
-selectedQuestion = ""
+selectedQuestion = "q1"
 
 function addListenersToQuesBtn(doc, quesBtnNo) {
 
     $("#q" + quesBtnNo).click(() => {
-        selectedQuestion = "q"+ quesBtnNo
+        selectedQuestion = "q" + quesBtnNo
+        console.log(quesBtnNo)
         $("#ques").html(doc.question)
         $("#opt1").html(doc.option.opt1)
         $("#opt2").html(doc.option.opt2)
@@ -78,4 +79,12 @@ function addListenersToQuesBtn(doc, quesBtnNo) {
     })
 }
 
-$("#arrow")
+$("#arrow").click(() => {
+
+
+    if (selectedQuestion == "q10") {
+        alert("submitting")
+    } else {
+        $("#q" + parseInt(parseInt(selectedQuestion.substring(1, selectedQuestion.length)) + 1)).click()
+    }
+})

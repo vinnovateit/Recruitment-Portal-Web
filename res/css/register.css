@@ -131,3 +131,7 @@ display: none;
 .error {
     display: none;
 }
+
+.loginFormField{
+    display: none;
+}

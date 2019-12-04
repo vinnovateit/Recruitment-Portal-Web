@@ -17,11 +17,10 @@
             <div class="progress" id="signUpProgress">
                 <div class="circular-progress">
                     <progress class="pure-material-progress-circular "></progress>
-                    <p>Signing Up...</p>
+                    <p>Please Wait...</p>
                 </div>
             </div>
         </center>
-
         <h1 class="signUpFormField">👋 Welcome!</h1>
         <label class="pure-material-textfield-outlined signUpFormField">
             <input placeholder=" " type="text" id="name">
@@ -59,61 +58,85 @@
             <span id="confPassErr" class="error">Password & Confirm password should match</span>
         </label>
 
-        <center>
-            <button id="signUpBtn" class="pure-material-button-contained signUpFormField" onclick="onSignupClick()"
+        <center class="signUpFormField">
+            <button id="signUpBtn" class="pure-material-button-contained" onclick="onSignupClick()"
                 style="background-color: #5F4D93; opacity: 0.8;">Sign Up</button>
 
-            <div>Already have an account? <a href="log.html" style="color: #5F4D93; opacity: 0.8;"">Login</a></div>
+            <div onclick="showLogin()">Already have an account? <span style="color: #5F4D93; opacity: 0.8; cursor: pointer;">Login</span></div>
         </center>
 
-        <!-- <div class=" done">
-                    <h1>👌 You're all set!</h1>
-                    <a class="pure-material-button-text" href="javascript:window.location.reload(true)">Again</a>
-            </div> -->
 
-    </div>
+        <!-- <center>
+                <div class="progress" id="LoginProgress">
+                    <div class="circular-progress">
+                        <progress class="pure-material-progress-circular "></progress>
+                        <p>Loggings Up...</p>
+                    </div>
+                </div>
+            </center> -->
+        <h1 class="loginFormField">👋 Welcome Back!</h1>
+        <label class=" pure-material-textfield-outlined loginFormField">
+                    <input placeholder=" " type="email" id="emailLo">
+                    <span>Email</span>
+                    <span id="emailErrLo" class="error">Please enter a valid vit student email</span>
+                    </label>
+
+                    <label class="pure-material-textfield-outlined loginFormField">
+                        <input placeholder=" " type="password" id="passLo">
+                        <span>Password</span>
+                        <span id="passErrLo" class="error">Password should be of atleast 8 digits</span>
+                    </label>
+
+                    <center class="loginFormField">
+                        <button id="loginBtn" class="pure-material-button-contained " onclick="onLoginClick()"
+                            style="background-color: #5F4D93; opacity: 0.8;">Login</button>
+
+                            <div onclick="showSignUp()">Already have an account?  <span style="color: #5F4D93; opacity: 0.8; cursor: pointer;">SignUp</span></div>
+                    </center>
+
+            </div>
 
 
 
-    <div class=" left-footer">
-        <a href"">Created by VinnovateIT Team</a><br />
-        <a href="#" target="_top">Instagram</a> &nbsp; | &nbsp;
-        <a href="#" target="_top">Facebook</a>
+            <div class=" left-footer">
+                <a href"">Created by VinnovateIT Team</a><br />
+                <a href="#" target="_top">Instagram</a> &nbsp; | &nbsp;
+                <a href="#" target="_top">Facebook</a>
 
-    </div>
+            </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+            <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+            <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+            <!-- Add Firebase products that you want to use -->
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyANgcwz3vxkHaNjWGg-_S18-yh4ynawgZk",
-            authDomain: "viit-recruitment.firebaseapp.com",
-            databaseURL: "https://viit-recruitment.firebaseio.com",
-            projectId: "viit-recruitment",
-            storageBucket: "viit-recruitment.appspot.com",
-            messagingSenderId: "104919146647",
-            appId: "1:104919146647:web:e7a0b354083f57bbb649d2",
-            measurementId: "G-LE2D8TB0Q9"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
-<script src="./res/js/notify.min.js"></script>
-    <script src="./res/js/register.js"></script>
+            <script>
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "AIzaSyANgcwz3vxkHaNjWGg-_S18-yh4ynawgZk",
+                    authDomain: "viit-recruitment.firebaseapp.com",
+                    databaseURL: "https://viit-recruitment.firebaseio.com",
+                    projectId: "viit-recruitment",
+                    storageBucket: "viit-recruitment.appspot.com",
+                    messagingSenderId: "104919146647",
+                    appId: "1:104919146647:web:e7a0b354083f57bbb649d2",
+                    measurementId: "G-LE2D8TB0Q9"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                firebase.analytics();
+            </script>
+            <script src="./res/js/notify.min.js"></script>
+            <script src="./res/js/register.js"></script>
 </body>
 
 </html>

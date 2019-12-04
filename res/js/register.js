@@ -86,7 +86,7 @@ function saveUserDataToFirestore(args) {
         user = firebase.auth().currentUser;
         userUid = user.uid;
     }
-   
+
     db.collection("users").doc(userUid).set({
         name: args.nameVal,
         phoneNumber: args.mobNoVal,
@@ -105,7 +105,15 @@ function saveUserDataToFirestore(args) {
             });
         })
         .catch(function (error) {
+            var errorMessage = error.message;
             console.error("Error writing document: ", error);
+            Notify({
+                content: errorMessage,
+                color: 'red',
+                rounded: true,
+                timeout: 2000
+            });
+            $(".progress").css("display", "none")
         });
 
     var user = firebase.auth().currentUser;
@@ -113,4 +121,65 @@ function saveUserDataToFirestore(args) {
     user.updateProfile({
         displayName: firstName + " " + lastName,
     });
+}
+$(".loginFormField").hide()
+
+function showLogin() {
+    $(".signUpFormField").hide()
+    $(".loginFormField").show()
+}
+
+function showSignUp() {
+    $(".signUpFormField").show()
+    $(".loginFormField").hide()
+}
+
+function onLoginClick() {
+    args = {}
+    args.emailVal = $("#emailLo").val()
+    args.passVal = $("#passLo").val()
+
+
+    isLoginValid = true
+    if (!(/^[a-z0-9A-Z.]{0,}2019@vitstudent.ac.in$/i.test(args.emailVal))) {
+        $('#emailErrLo').css("display", "block")
+        isLoginValid = false
+    } else {
+        $("#emailErrLo").css("display", "none")
+    }
+
+    if (args.passVal == "" || args.passVal.length < 8) {
+        $('#passErrLo').css("display", "block")
+        isLoginValid = false
+    } else {
+        $("#passErrLo").css("display", "none")
+    }
+
+
+    if (isLoginValid) {
+        $(".progress").css("display", "block")
+        firebase.auth().signInWithEmailAndPassword(args.emailVal, args.passVal).then(() => {
+            Notify({
+                content: 'Logged Up Successfully. Please wait while we redirect you.',
+                color: 'green',
+                rounded: true,
+                timeout: 2000
+            })
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+
+            Notify({
+                content: errorMessage,
+                color: 'red',
+                rounded: true,
+                timeout: 2000
+            });
+            $(".progress").css("display", "none")
+        });
+    }
+
+
 }
