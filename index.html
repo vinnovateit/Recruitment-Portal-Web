@@ -1,593 +1,477 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<title>//</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="bootstrap.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, ,initial-scale=1.0,shrink-to-fit=yes">
+    <head>
+    <title>//</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, ,initial-scale=1.0,shrink-to-fit=yes">
 	<link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="first_trial.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
-	<style type="text/css">
-		a {
-			color: white;
-		}
-
-		a:hover {
-			color: #BFC9CA;
-		}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="first_trial.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style type="text/css">
+	a
+	{
+		color :white;
+	}
+	a:hover
+	{
+		color :#BFC9CA;
+	}
 
 
-		body {
-			/*background-image: url('D:/MY PROJECTS/WEB/Recruitment-Portal-Web/images/kd3.png');*/
-		}
+	body
+	{
+		/*background-image: url('D:/MY PROJECTS/WEB/Recruitment-Portal-Web/images/kd3.png');*/
+	}
+	#c1
+	{
 
-		#c1 {
+		margin-bottom: 35px;
+		margin-top: 50px;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
+		margin-top: 30px;
+	}
+	#wedd
+	{
+		/*border-color: green;*/
+	}
+	#qd
+	{
+		text-align: center;
+		padding-top: 40px;
+		font-weight: 500;
+		z-index: 2;
+		text-decoration-color: black;
+	}
+	.col-11
+	{
+		padding-left: 15px;
+	}
+	#box_for_heading
+	{
+		text-align: center;
+		/*border-color: green;*/
+		margin-top: 30px;
+		/*padding-top: 20px;*/
+	}
+	.points
+	{
+		color: #ECF0F1;
+	}
+	.points:hover
+	{
+		color: #839192;
+	}
+	#text_box_heading
+	{
+		height: 30px;
+		display: inline-block;
+		text-align: center;
+		font-size: 22px;
+		font-weight: 500;
+		/*background: rgb(217,190,202);*/
+		/*background: linear-gradient(90deg, rgba(217,190,202,1) 0%, rgba(218,192,209,1) 30%, rgba(214,179,235,1) 45%, rgba(218,181,181,1) 100%);*/
+            /*box-shadow: 0px 3px 6px #00000029;*/
+            width: 10%;
+        /*border-radius: 22px;*/
+        margin-top: 30px;
+        color:#A569BD ; 
+        display: inline;
+        padding: 10px;
+	}
+	#op1
+	{
+		color: #95A5A6 ;
 
-			margin-bottom: 35px;
-			margin-top: 50px;
-			box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
-			margin-top: 30px;
-		}
-
-		#wedd {
-			/*border-color: green;*/
-		}
-
-		#qd {
-			text-align: center;
-			padding-top: 40px;
-			font-weight: 500;
-			z-index: 2;
-			text-decoration-color: black;
-		}
-
-		.col-11 {
-			padding-left: 15px;
-		}
-
-		#box_for_heading {
-			text-align: center;
-			/*border-color: green;*/
-			margin-top: 30px;
-			/*padding-top: 20px;*/
-		}
-
-		.points {
-			color: #ECF0F1;
-		}
-
-		.points:hover {
-			color: #839192;
-		}
-
-		#text_box_heading {
-			height: 30px;
-			display: inline-block;
-			text-align: center;
-			font-size: 22px;
-			font-weight: 500;
-			/*background: rgb(217,190,202);*/
-			/*background: linear-gradient(90deg, rgba(217,190,202,1) 0%, rgba(218,192,209,1) 30%, rgba(214,179,235,1) 45%, rgba(218,181,181,1) 100%);*/
-			/*box-shadow: 0px 3px 6px #00000029;*/
-			width: 10%;
-			/*border-radius: 22px;*/
-			margin-top: 30px;
-			color: #A569BD;
-			display: inline;
-			padding: 10px;
-		}
-
-		#op1 {
-			color: #95A5A6;
-
-		}
-
-		#op1:hover {
-			color: #A569BD;
-			background-color: #F4ECF7;
-
-		}
-
-		#op2 {
-			color: #95A5A6;
-		}
-
-		#op2:hover {
-			color: #A569BD;
-			background-color: #F4ECF7;
-
-		}
-
-		#op3 {
-			color: #95A5A6;
-		}
-
-		#op3:hover {
-			color: #A569BD;
-			background-color: #F4ECF7;
-
-		}
-
-		#op4 {
-			color: #95A5A6;
-			margin-bottom: 30px;
-		}
-
-		#op4:hover {
-			color: #A569BD;
-			background-color: #F4ECF7;
-
-		}
-
-		#yum_yum {
-			margin-left: 12%;
-		}
-
-		#hello {
-			text-align: center;
-			padding-bottom: 30px;
-		}
-
-		.card-img-top {
-			border-top-left-radius: 30px;
-			border-top-right-radius: 30px;
-		}
-
-		#aicard {
-			display: inline-block;
-			border-radius: 30px;
-			box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
-		}
-	</style>
+	}
+	#op1:hover
+	{
+		color: #A569BD ;
+		background-color:#F4ECF7  ;
+		
+	}
+	#op2
+	{
+		color: #95A5A6 ;		
+	}
+	#op2:hover
+	{
+		color: #A569BD ;
+		background-color:#F4ECF7  ;
+		
+	}
+	#op3
+	{
+		color: #95A5A6 ;		
+	}
+	#op3:hover
+	{
+		color: #A569BD ;
+		background-color:#F4ECF7  ;
+		
+	}
+	#op4
+	{
+		color: #95A5A6 ;
+		margin-bottom: 30px;
+	}
+	#op4:hover
+	{
+		color: #A569BD ;
+		background-color:#F4ECF7  ;
+		
+	}
+	#yum_yum
+	{
+		margin-left: 12%;
+	}
+	#hello
+	{
+		text-align: center;
+		padding-bottom: 30px;
+	}
+	.card-img-top
+	{
+		border-top-left-radius: 30px;
+		border-top-right-radius: 30px;
+	}
+	#aicard
+	{
+		display: inline-block;
+		border-radius: 30px;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
+	}
+</style>
 </head>
+    <body>
+      <!--JQUERY-->
+      <script src="first_trial.js">
+      </script>
+            <!--NAVBAR-->
+            <nav class="navbar navbar-expand-sm  sticky-top ">
+            <!--login part--> 
+                    <ul class="navbar-nav ">
+                      <li class="nav-item">
+                        <a class="nav-link navbar-brand" href="#">VinnovateIT</a>
+                      </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                            <a class="nav-link" href="#">person name/login/signup</a>
 
-<body>
-	<!--JQUERY-->
-	<script src="first_trial.js">
-	</script>
-	<!--NAVBAR-->
-	<nav class="navbar navbar-expand-sm  sticky-top ">
-		<!--login part-->
-		<ul class="navbar-nav ">
-			<li class="nav-item">
-				<a class="nav-link navbar-brand" href="#">VinnovateIT</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="#">person name/login/signup</a>
+                      </li>
+                    </ul>
+                  
+                  </nav>
+        <!--question paper part-->
+        <div id="box_for_heading">
+        	<div id="text_box_heading"> 
+        			Web DeV
+        	</div>
+        </div>
+<style type="text/css">
+	div
+	{
+		/*border :2px solid red;*/
+	}
+.parent {
+display: grid;
+/*box-shadow: 3px 3px 6px #00000029;*/
+            /*opacity: 1;*/
+grid-template-columns: repeat(6, 1fr);
+grid-template-rows: repeat(10, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+width: 70%;
+margin: 20px auto;
+border-radius: 25px;
+}
 
-			</li>
-		</ul>
+.div1 { grid-area: 1 / 1 / 11 / 7;
+	border-radius: 25px;	 
+box-shadow: 3px 3px 7px -4px #888;}
+.div2 { 
+		grid-area: 1 / 1 / 11 / 2;
+		margin: 0px auto;0
+		border-color: yellow;
+		padding: 30px;
+ 	  }
+.div3 { grid-area: 1 / 2 / 11 / 7;
+border-radius: 25px;
+padding-right: 50px;
 
-	</nav>
-	<!--question paper part-->
-	<div id="box_for_heading">
-		<div id="text_box_heading">
-			Web DeV
-		</div>
-	</div>
-	<style type="text/css">
-		div {
-			/*border :2px solid red;*/
-		}
+ }
+.div4 { grid-area: 1 / 1 / 2 / 2; 
+		margin: 0px auto;
+		margin-top: 5px;
+	  }
+.div5 { 
+		grid-area: 2 / 1 / 3 / 2;
+		margin: 0px auto;
 
-		.parent {
-			display: grid;
-			/*box-shadow: 3px 3px 6px #00000029;*/
-			/*opacity: 1;*/
-			grid-template-columns: repeat(6, 1fr);
-			grid-template-rows: repeat(10, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-			width: 70%;
-			margin: 20px auto;
-			border-radius: 25px;
-		}
+		 }
+.div6 { grid-area: 3 / 1 / 4 / 2; 
+		margin: 0px auto;
+	}
+.div7 { grid-area: 4 / 1 / 5 / 2; 
+		margin: 0px auto;
+	}
+.div8 { grid-area: 5 / 1 / 6 / 2;
+		margin: 0px auto;
+		 }
+.div9 { grid-area: 6 / 1 / 7 / 2;
+		margin: 0px auto;
+		 }
+.div10 { grid-area: 7 / 1 / 8 / 2;
+		margin: 0px auto;
+		 }
+.div11 { grid-area: 8 / 1 / 9 / 2;
+		margin: 0px auto;
+		 }
+.div12 { grid-area: 9 / 1 / 10 / 2;
+		margin: 0px auto;
+		 }
+.div13 { grid-area: 10 / 1 / 11 / 2;
+		margin: 0px auto;
+		margin-bottom: 7px;
+		 }
+.div14 { grid-area: 1 / 2 / 3 / 7;
+		font-family: 'Bitter', serif;
+		font-weight: 600;
+		margin: auto 30px;
+	   }
+.div15 { grid-area: 3 / 2 / 5 / 7;
+	/*text-align: center;*/
+	padding-left: 30px;
+	padding-top: 10px;
+	}
+.div16 { grid-area: 5 / 2 / 7 / 7; 
+	/*text-align: center;*/
+	padding-left: 30px;
+	padding-top: 10px;
+	}
+.div17 { grid-area: 7 / 2 / 9 / 7; 
+	/*text-align: center;*/
+	padding-left: 30px;
+	padding-top: 10px;
+}
+.div18 { grid-area: 9 / 2 / 11 / 7; 
+	/*text-align: center;*/
+	padding-left: 30px;
+	padding-top: 10px;
 
-		.div1 {
-			grid-area: 1 / 1 / 11 / 7;
-			border-radius: 25px;
-			box-shadow: 3px 3px 7px -4px #888;
-		}
+	}
+.div19 { grid-area: 9 / 6 / 11 / 7; }
 
-		.div2 {
-			grid-area: 1 / 1 / 11 / 2;
-			margin: 0px auto;
-			border-color: yellow;
-			padding: 30px;
-		}
-
-		.div3 {
-			grid-area: 1 / 2 / 11 / 7;
-			border-radius: 25px;
-			padding-right: 50px;
-
-		}
-
-		.div4 {
-			grid-area: 1 / 1 / 2 / 2;
-			margin: 0px auto;
-			margin-top: 5px;
-		}
-
-		.div5 {
-			grid-area: 2 / 1 / 3 / 2;
-			margin: 0px auto;
-
-		}
-
-		.div6 {
-			grid-area: 3 / 1 / 4 / 2;
-			margin: 0px auto;
-		}
-
-		.div7 {
-			grid-area: 4 / 1 / 5 / 2;
-			margin: 0px auto;
-		}
-
-		.div8 {
-			grid-area: 5 / 1 / 6 / 2;
-			margin: 0px auto;
-		}
-
-		.div9 {
-			grid-area: 6 / 1 / 7 / 2;
-			margin: 0px auto;
-		}
-
-		.div10 {
-			grid-area: 7 / 1 / 8 / 2;
-			margin: 0px auto;
-		}
-
-		.div11 {
-			grid-area: 8 / 1 / 9 / 2;
-			margin: 0px auto;
-		}
-
-		.div12 {
-			grid-area: 9 / 1 / 10 / 2;
-			margin: 0px auto;
-		}
-
-		.div13 {
-			grid-area: 10 / 1 / 11 / 2;
-			margin: 0px auto;
-			margin-bottom: 7px;
-		}
-
-		.div14 {
-			grid-area: 1 / 2 / 3 / 7;
-			font-family: 'Bitter', serif;
-			font-weight: 600;
-			margin: auto 30px;
-		}
-
-		.div15 {
-			grid-area: 3 / 2 / 5 / 7;
-			/*text-align: center;*/
-			padding-left: 30px;
-			padding-top: 10px;
-		}
-
-		.div16 {
-			grid-area: 5 / 2 / 7 / 7;
-			/*text-align: center;*/
-			padding-left: 30px;
-			padding-top: 10px;
-		}
-
-		.div17 {
-			grid-area: 7 / 2 / 9 / 7;
-			/*text-align: center;*/
-			padding-left: 30px;
-			padding-top: 10px;
-		}
-
-		.div18 {
-			grid-area: 9 / 2 / 11 / 7;
-			/*text-align: center;*/
-			padding-left: 30px;
-			padding-top: 10px;
-
-		}
-
-		.div19 {
-			grid-area: 9 / 6 / 11 / 7;
-		}
-
-		.side_bar {
-			background: transparent linear-gradient(#5F4D93, #E37682) 0% 0% no-repeat padding-box;
-			border-bottom-left-radius: 25px;
-			border-top-left-radius: 25px;
-			width: 100%;
-			max-width: 60%;
-			/*box-shadow: 3px 3px 6px #00000029;
+.side_bar
+{	
+	background: transparent linear-gradient( #5F4D93,#E37682  ) 0% 0% no-repeat padding-box;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	width:100%; 
+	max-width: 60%;
+	/*box-shadow: 3px 3px 6px #00000029;
             opacity: 1;
     	-webkit-box-shadow: 0 5px -3px 6px black;
 	   -moz-box-shadow: 0 5px -3px 6px black;
 	        box-shadow: 0 5px -3px 6px black;*/
-			margin-left: 0px;
-			text-align: center;
-		}
+	margin-left: 0px;
+	text-align: center;
+}
+.ques_boxes
+{
+	color: white;
+	padding: 9px;
+	font-size: 16px;
+	text-align: center;
+	max-width: 60%;
+	display: inline-block;
+	margin-left: 2vw;
+}
+.ques_boxes:hover
+{
+	color: #BDC3C7;
+}
+.options
+{
+	/*display: inline-block;*/
+	box-shadow: 3px 3px 6px #00000029;
+    opacity: 1;
+    width: 80%;
+    padding: 15px;
+    border-radius: 3px;
+}
+.options:hover
+{
+	background-color:#D7BDE2   ;
+	color:#5F4D93 ;
+	font-weight: 600;
+}
+#last_option
+{
+	margin-bottom: 30px;
+}
+#arrow
+{
+	color: #5F4D93;
+	/*border: 2px solid black;*/
+	font-size: 10px;
+	margin: auto auto;
+	margin-bottom: 40px;
+}
+</style>
 
-		.ques_boxes {
-			color: white;
-			padding: 9px;
-			font-size: 16px;
-			text-align: center;
-			max-width: 60%;
-			display: inline-block;
-			margin-left: 2vw;
-		}
-
-		.ques_boxes:hover {
-			color: #BDC3C7;
-		}
-
-		.options {
-			/*display: inline-block;*/
-			box-shadow: 3px 3px 6px #00000029;
-			opacity: 1;
-			width: 80%;
-			padding: 15px;
-			border-radius: 3px;
-		}
-
-		.options:hover {
-			background-color: #D7BDE2;
-			color: #5F4D93;
-			font-weight: 600;
-		}
-
-		#last_option {
-			margin-bottom: 30px;
-		}
-
-		#arrow {
-			color: #5F4D93;
-			/*border: 2px solid black;*/
-			font-size: 10px;
-			margin: auto auto;
-			margin-bottom: 40px;
-		}
-	</style>
-
-	<div class="parent" style="display:none" id="questions">
-		<div class="div1"> </div>
-		<div class="div2 side_bar"> </div>
-		<div class="div3"> </div>
-		<div class="div4 ques_boxes" id="q1">Q1</div>
-		<div class="div5 ques_boxes" id="q2">Q2</div>
-		<div class="div6 ques_boxes" id="q3">Q3</div>
-		<div class="div7 ques_boxes" id="q4">Q4</div>
-		<div class="div8 ques_boxes" id="q5">Q5</div>
-		<div class="div9 ques_boxes" id="q6">Q6</div>
-		<div class="div10 ques_boxes" id="q7">Q7</div>
-		<div class="div11 ques_boxes" id="q8">Q8</div>
-		<div class="div12 ques_boxes" id="q9">Q9</div>
-		<div class="div13 ques_boxes" id="q10">Q10</div>
-		<div class="div14" id="ques">Which of the following statements correctly states Newton's first law of motion?
-		</div>
-		<div class="div15  ">
-			<div class="options" id="opt1">
-				Every option tends to preserve its state of motion.
-			</div>
-		</div>
-		<div class="div16 ">
-			<div class="options" id="opt2">
-				Every option tends to preserve its state of motion.
-			</div>
-		</div>
-		<div class="div17">
-			<div class="options" id="opt3">
-				Every option tends to preserve its state of motion.
-			</div>
-		</div>
-		<div class="div18">
-			<div id="last_option" class="options" id="opt4">
-				Every option tends to preserve its state of motion.
-			</div>
-		</div>
-		<div class="div19" id="arrow">
-			<img
-				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAkElEQVRIie3UsQ1BURQG4M97plAQFYlGTGAQjREMYAMDGEBjB6PoFCISpVrxSpT3XJLztSe5f3Ly30NK6d+1Bd9eo8H107ApGDzECfOCGV/tcMcsOriHPW6YRoc3OOCCcXR4iyPOGEAfE2x0aynpiZGucMuSrf4Jb6uOUKVc1b5TlQOyxUOFk7nCIjo0pRTnBeFwFGP2/meFAAAAAElFTkSuQmCC">
-
-		</div>
+<div class="parent" style="display:none">
+<div class="div1"> </div>
+<div class="div2 side_bar"> </div>
+<div class="div3"> </div>
+<div class="div4 ques_boxes">Q1</div>
+<div class="div5 ques_boxes">Q2</div>
+<div class="div6 ques_boxes">Q3</div>
+<div class="div7 ques_boxes">Q4</div>
+<div class="div8 ques_boxes">Q5</div>
+<div class="div9 ques_boxes">Q6</div>
+<div class="div10 ques_boxes">Q7</div>
+<div class="div11 ques_boxes">Q8</div>
+<div class="div12 ques_boxes">Q9</div>
+<div class="div13 ques_boxes">Q10</div>
+<div class="div14">Which of the following statements correctly states Newton's first law of motion?</div>
+<div class="div15  ">
+	<div class="options">
+		Every option tends to preserve its state of motion.
 	</div>
-	<style type="text/css">
-		div {
-			/*border: 2px solid red;*/
-		}
-
-		.parent {
-			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-			grid-template-rows: repeat(6, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-		}
-
-		.div100 {
-			grid-area: 1 / 1 / 4 / 3;
-		}
-
-		.div101 {
-			grid-area: 1 / 3 / 4 / 5;
-		}
-
-		.div102 {
-			grid-area: 1 / 5 / 4 / 7;
-		}
-
-		.div103 {
-			grid-area: 4 / 1 / 7 / 3;
-		}
-
-		.div104 {
-			grid-area: 4 / 3 / 7 / 5;
-		}
-
-		.div105 {
-			grid-area: 4 / 5 / 7 / 7;
-		}
-
-		.row {
-			/*border: 2px solid red;*/
-			margin: 0 auto;
-			width: 100%;
-		}
-	</style>
-
-
-
-
-
-
-	<div class="row" id="domains">
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img src=".\images\ai.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">AI/ML</h5>
-							<p class="card-text">In computer science,artificial intelligence, sometimes called machine
-								intelligence, is intelligence demonstrated by machines.</p>
-							<div id="aiBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Test</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img src=".\images\and.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Andriod Dev</h5>
-							<p class="card-text">Android software development is the process by which new applications
-								are
-								created for devices running the Android operating
-								system.</p>
-							<div id="androidBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Test</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img id="photo" src=".\images\web.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Web Dev</h5>
-							<p class="card-text">Web development is the work involved in developing a web site for the
-								Internet.</p>
-							<div id="webBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Test</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img src=".\images\man.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Managment</h5>
-							<p class="card-text">Management (or managing) is the administration of an organization.</p>
-							<div id="managmentBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Test</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img src=".\images\des.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Design</h5>
-							<p class="card-text">A design is a plan or specification for the construction of an object
-								or
-								system.</p>
-							<div id="designBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Test</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img src=".\images\iot.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">IOT</h5>
-							<p class="card-text">The Internet of Things (IoT) is a system of interrelated computing
-								devices.</p>
-							<div id="iotBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Test</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+</div>
+<div class="div16 ">
+	<div class="options"> 
+		Every option tends to preserve its state of motion.
 	</div>
+</div>
+<div class="div17">
+	<div class="options">
+		Every option tends to preserve its state of motion.
+	</div>
+</div>
+<div class="div18">
+	<div id="last_option" class="options">
+		Every option tends to preserve its state of motion.
+	</div>
+</div>
+<div class="div19" id="arrow">
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAkElEQVRIie3UsQ1BURQG4M97plAQFYlGTGAQjREMYAMDGEBjB6PoFCISpVrxSpT3XJLztSe5f3Ly30NK6d+1Bd9eo8H107ApGDzECfOCGV/tcMcsOriHPW6YRoc3OOCCcXR4iyPOGEAfE2x0aynpiZGucMuSrf4Jb6uOUKVc1b5TlQOyxUOFk7nCIjo0pRTnBeFwFGP2/meFAAAAAElFTkSuQmCC">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ </div>
+</div>
 
+        <div class="container " id="c1" style="position:relative;" >
 
-	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-
-	<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-
-	<!-- Add Firebase products that you want to use -->
-	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
-
-	<script>
-		// Your web app's Firebase configuration
-		var firebaseConfig = {
-			apiKey: "AIzaSyANgcwz3vxkHaNjWGg-_S18-yh4ynawgZk",
-			authDomain: "viit-recruitment.firebaseapp.com",
-			databaseURL: "https://viit-recruitment.firebaseio.com",
-			projectId: "viit-recruitment",
-			storageBucket: "viit-recruitment.appspot.com",
-			messagingSenderId: "104919146647",
-			appId: "1:104919146647:web:e7a0b354083f57bbb649d2",
-			measurementId: "G-LE2D8TB0Q9"
-		};
-
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		firebase.analytics();
-	</script>
-	<script src="./res/js/notify.min.js"></script>
-	<script src="./res/js/index.js"></script>
-
-</body>
-
+            <div class="row">
+            <div class="col-xs-1half " style="background: transparent linear-gradient( #5F4D93,#E37682  ) 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;
+            opacity: 1;border-bottom-left-radius: 25px;border-top-left-radius: 25px;
+            	padding :5px; width:7%;"> 
+            <p style="margin-top:7vh"></p>
+              <div class="points" id="yum_1" >Q1</div><br>
+              <div class="points" id="yum_2">Q2</div><br>
+              <div class="points" id='yum_3'>Q3</div><br>
+              <div class="points" id='yum_4'>Q4</div><br>
+              <div class="points" id='yum_5'>Q5</div><br>
+              <div class="points" id='yum_6'>Q6</div><br>
+              <div class="points" id='yum_7'>Q7</div><br>
+              <div class="points" id='yum_8'>Q8</div><br>
+              <div class="points" id='yum_9'>Q9</div><br>
+              <div class="points" id='yum_10'>Q10</div><br>
+            </div>
+            <div class="col-11" style="background: #FFFFFF 0% 0% no-repeat padding-box;
+            /*box-shadow: 0px 3px 6px #00000064;*/
+            /*color: #FDFEFE;*/
+            border-radius: 0px;
+            opacity: 1; ">
+              
+              <div id='qd' >ASSSUMMIINGNGNGNGN AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONGGGGGGGG ASSSS QQUESTIONNNNNNNNNNNNNNNNNN HERER</div><br><br><br>
+              <div id='op1' class="point" >THE OPTION NUMBER ONE GOES HERE</div><br><br><br>
+              <div id='op2' class="point" >THE OPTION NUMBER 2 GOES HERE</div><br><br><br>
+              <div id='op3' class="point" >THE OPTION NUMBER 3 GOES HERE</div><br><br><br>
+              <div id='op4' class="point" >THE OPTION NUMBER 4 GOES HERE</div><br>
+              
+    
+             </div>
+            </div>
+          </div>
+                  <!--questoin choosing part-->
+<div class="container" id="yum_yum">
+	      		<div class="row">
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\ai.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">AI/ML</h5>
+						    <p class="card-text">In computer science,artificial intelligence, sometimes called machine intelligence, is intelligence demonstrated by machines.</p>
+						    <a href="#" style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;' class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\and.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Andriod Dev</h5>
+						    <p class="card-text">Android  software development  is  the  process  by  which new  applications  are  created  for devices  running  the  Android  operating
+						     system.</p>
+						    <a href="#" style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'  class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      		</div>	      		
+	      		<div class="row">
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img id="photo" src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\web.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Web Dev</h5>
+						    <p class="card-text">Web development is the work involved in developing a web site for the Internet.</p>
+						    <a href="#" style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;' class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      			<div class="col" id="hello">
+	      				<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\iot.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">IOT</h5>
+						    <p class="card-text">The Internet of Things (IoT) is a system of interrelated computing devices.</p>
+						    <a href="#" style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;' class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      				</div>
+	      			</div>
+	      		</div>	      		
+	      		<div class="row">
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\man.jpg" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Managment</h5>
+						    <p class="card-text">Management (or managing) is the administration of an organization.</p>
+						    <a href="#" style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;' class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      			<div class="col" id="hello">
+	      				<div id="aicard" class="card" style="width: 18rem;">
+						  <img src="D:\MY PROJECTS\WEB\Recruitment-Portal-Web\images\des.png" class="card-img-top" alt="...">
+						  <div class="card-body">
+						    <h5 class="card-title">Design</h5>
+						    <p class="card-text">A design is a plan or specification for the construction of an object or system.</p>
+						    <a href="#" style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;' class="btn btn-primary">Go somewhere</a>
+						  </div>
+						</div>
+	      			</div>
+	      		</div>	
+      		</div>
+     </body>
 </html>
