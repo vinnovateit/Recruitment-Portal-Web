@@ -1,6 +1,7 @@
 
 $("#aiBtn").click(function () {
     isTextAttempted("AI")
+    // startTest("AI")
 });
 
 $("#androidBtn").click(function () {
@@ -229,6 +230,7 @@ function shuffle(arra1) {
 }
 
 function startTimer(till = 11) {
+    $("#timer").css("display","block")
     var now = new Date();
     now.setMinutes(now.getMinutes() + till); // timestamp
     now = new Date(now); // Date object
@@ -269,16 +271,16 @@ function startTimer(till = 11) {
 }
 
 localStorage.setItem("domain", "")
-onVisibilityChange(function (visible) {
-    if (!visible) {
-        if (localStorage.getItem("domain") != "") {
-            alert("Uh oh! You moved out. Cancelling Test.")
-            localStorage.setItem("domain", "")
-            location.reload(true);
-        }
-    }
-    // console.log('the page is now', visible ? 'focused' : 'unfocused');
-});
+// onVisibilityChange(function (visible) {
+//     if (!visible) {
+//         if (localStorage.getItem("domain") != "") {
+//             alert("Uh oh! You moved out. Cancelling Test.")
+//             localStorage.setItem("domain", "")
+//             location.reload(true);
+//         }
+//     }
+//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
+// });
 
 
 function onVisibilityChange(callback) {
