@@ -73,7 +73,7 @@ function startTest(testType) {
             querySnapshot.docs = shuffle(querySnapshot.docs);
             setQuestionsData(querySnapshot);
             localStorage.setItem("domain", testType);
-            startTimer(1)
+            startTimer(11)
             $("#text_box_heading").html(testType)
         })
         .catch(function (error) {
