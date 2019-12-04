@@ -38,7 +38,6 @@ function onSignupClick() {
         $("#mobNoErr").css("display", "none")
     }
 
-    alert(emailVal)
     if (!(/^[a-z0-9A-Z.]{0,}2019@vitstudent.ac.in$/i.test(emailVal))) {
         $('#emailErr').css("display", "block")
         isSignupValid = false
