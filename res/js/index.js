@@ -58,6 +58,8 @@ function isTextAttempted(testType) {
 
 
 function startTest(testType) {
+    showMessage("Starting Test. Please wait...", 2400)
+
     var db = firebase.firestore();
     db.collection("backend/Questions/" + testType)
         .get()
@@ -75,16 +77,16 @@ function startTest(testType) {
 
 function setQuestionsData(querySnapshot) {
     i = 0;
-
-    for (i = 1; i <= 2; i++) {
+    numArr = [1, 2, 3, 4, 5, 6,7,8,9,10]
+    numArr = shuffle(numArr)
+    for (i = 0; i < numArr.length; i++) {
         $("#ques").html(querySnapshot.docs[0].data().question)
-
         $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
         $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
         $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
         $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
-
-        addListenersToQuesBtn(querySnapshot.docs[i - 1].data(), i);
+        
+        addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), i, querySnapshot.docs[numArr[i]].id);
     }
 
 
@@ -95,7 +97,7 @@ function setQuestionsData(querySnapshot) {
 
 selectedQuestion = "q1"
 
-function addListenersToQuesBtn(doc, quesBtnNo) {
+function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 
     $("#q" + quesBtnNo).click(() => {
         optReset([1, 2, 3, 4])
@@ -107,6 +109,8 @@ function addListenersToQuesBtn(doc, quesBtnNo) {
         $("#opt3").html(doc.option.opt3)
         $("#opt4").html(doc.option.opt4)
 
+        ("#ques").addClass(docId)
+
         if (localStorage.getItem(selectedQuestion) != "")
             otpAnswer($("#opt" + localStorage.getItem(selectedQuestion)))
     })
@@ -116,20 +120,22 @@ $("#arrow").click(() => {
 
 
     if (selectedQuestion == "q2") {
-        submitAnswers()
+        if (confirm("Are you sure you want to submit your answes?")) {
+            submitAnswers()
+        }
     } else {
         $("#q" + parseInt(parseInt(selectedQuestion.substring(1, selectedQuestion.length)) + 1)).click()
     }
 })
 
 function submitAnswers() {
-    alert("submitting")
+    showMessage("Submitting your answers. Please wait...", 2000)
     selectedAnswers = {}
     for (i = 1; i <= 10; i++) {
         selectedAnswers["q" + i] = localStorage.getItem("q" + i);
     }
     domain = localStorage.getItem("domain");
-    alert(JSON.stringify(selectedAnswers) + domain)
+    // alert(JSON.stringify(selectedAnswers) + domain)
     saveAnswers(domain, selectedAnswers)
 }
 
@@ -142,7 +148,7 @@ function saveAnswers(domain, selectedAnswers) {
     }
     data = {}
     data[domain] = selectedAnswers
-    alert(userUid)
+    // alert(userUid)
     db.collection("users").doc(userUid).update(
         data
     ).then(function () {
@@ -207,21 +213,17 @@ function optReset(arr) {
     }
 }
 
-function shuffle(arra1) {
-    var ctr = arra1.length, temp, index;
-
-    // While there are elements in the array
-    while (ctr > 0) {
-        // Pick a random index
-        index = Math.floor(Math.random() * ctr);
-        // Decrease ctr by 1
-        ctr--;
-        // And swap the last element with it
-        temp = arra1[ctr];
-        arra1[ctr] = arra1[index];
-        arra1[index] = temp;
+function shuffle(a) {
+    console.log(a)
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
     }
-    return arra1;
+    console.log(a)
+    return a;
 }
 
 function startTimer(till = 11) {
