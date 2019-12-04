@@ -126,8 +126,6 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
         $("#opt4").html(doc.option.opt4)
 
         // $("#ques").addClass(docId)
-
-
         if (localStorage.getItem(questIdObj[selectedQuestion]) != "") {
             console.log(questIdObj[selectedQuestion] + "#opt" + localStorage.getItem(questIdObj[selectedQuestion]))
             otpAnswer($("#opt" + localStorage.getItem(questIdObj[selectedQuestion])))
@@ -136,8 +134,6 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 }
 
 $("#arrow").click(() => {
-
-
     if (selectedQuestion == "q10") {
         if (confirm("Are you sure you want to submit your answes?")) {
             submitAnswers()
@@ -150,7 +146,7 @@ $("#arrow").click(() => {
 function submitAnswers() {
     showMessage("Submitting your answers. Please wait...", 2000)
     selectedAnswers = {}
-    alert(JSON.stringify(questIdObj))
+    // alert(JSON.stringify(questIdObj))
     for (i = 1; i <= 10; i++) {
 
         selectedAnswers[questIdObj["q" + i]] = localStorage.getItem(questIdObj["q" + i]);
