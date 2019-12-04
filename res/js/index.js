@@ -123,6 +123,7 @@ function saveAnswers(domain, selectedAnswers) {
             rounded: true,
             timeout: 2000
         });
+        location.reload(true)
     }).catch(function (error) {
         var errorMessage = error.message;
         console.error("Error writing document: ", error);
@@ -137,16 +138,54 @@ function saveAnswers(domain, selectedAnswers) {
 }
 $("#opt1").click(() => {
     localStorage.setItem(selectedQuestion, "a");
+    optReset([2, 3, 4])
+    $("#opt1").css({
+        "background-color": "#D7BDE2",
+        "color": "#5F4D93",
+        "font-weight": 600
+    })
 })
 $("#opt2").click(() => {
     localStorage.setItem(selectedQuestion, "b");
+    optReset([1, 3, 4])
+    $("#opt2").css({
+        "background-color": "#D7BDE2",
+        "color": "#5F4D93",
+        "font-weight": 600
+    })
 })
 $("#opt3").click(() => {
     localStorage.setItem(selectedQuestion, "c");
+    optReset([1, 2, 4])
+    $("#opt3").css({
+        "background-color": "#D7BDE2",
+        "color": "#5F4D93",
+        "font-weight": 600
+    })
 })
 $("#opt4").click(() => {
+
     localStorage.setItem(selectedQuestion, "d");
+    optReset([1, 2, 3])
+    $("#opt4").css({
+        "background-color": "#D7BDE2",
+        "color": "#5F4D93",
+        "font-weight": 600
+    })
 })
+
+function optReset(arr) {
+
+    for (i = 0; i < arr.length; i++) {
+        // $("#opt"  + obj[i]).css("")
+        $("#opt" + arr[i]).css({
+            "background-color": "",
+            "color": "",
+            "font-weight": 400
+        })
+    }
+}
+
 
 
 
@@ -288,7 +327,7 @@ function setUserDisplayName(uid) {
     docRef.get().then(function (doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data().name);
-            $("#logOut").html("LogOut, " + doc.data().name+ "")
+            $("#logOut").html("LogOut, " + doc.data().name + "")
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
