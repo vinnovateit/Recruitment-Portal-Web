@@ -88,7 +88,6 @@ function setQuestionsData(querySnapshot) {
     }
 
 
-
     $("#domains").css("display", "none")
 
     $("#questions").css("display", "grid")
@@ -208,10 +207,6 @@ function optReset(arr) {
     }
 }
 
-
-
-
-
 function shuffle(arra1) {
     var ctr = arra1.length, temp, index;
 
@@ -230,7 +225,7 @@ function shuffle(arra1) {
 }
 
 function startTimer(till = 11) {
-    $("#timer").css("display","block")
+    $("#timer").css("display", "block")
     var now = new Date();
     now.setMinutes(now.getMinutes() + till); // timestamp
     now = new Date(now); // Date object
@@ -360,6 +355,16 @@ function setUserDisplayName(uid) {
     });
 
 }
+
+$("#logOut").click(function () {
+    firebase.auth().signOut()
+        .then(function () {
+            showMessage("Logged Out Successfully!")
+        })
+        .catch(function (error) {
+            showMessage("Error logging you out :(")
+        });
+})
 
 function showMessage(message, time = 2000, color = "green") {
     Notify({
