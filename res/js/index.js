@@ -49,7 +49,7 @@ function startTest(testType) {
 function setQuestionsData(querySnapshot) {
     i = 0;
 
-    for (i = 1; i <= 2; i++) {
+    for (i = 1; i <= 4; i++) {
         $("#ques").html(querySnapshot.docs[0].data().question)
 
         $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
