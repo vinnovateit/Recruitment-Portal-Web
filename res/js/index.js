@@ -1,10 +1,11 @@
 
 $("#aiBtn").click(function () {
-    startTest("AI")
+    isTextAttempted("AI")
 });
 
 $("#androidBtn").click(function () {
-    startTest("Android")
+    isTextAttempted("Android")
+
 });
 
 $("#webBtn").click(function () {
@@ -23,6 +24,37 @@ $("#designBtn").click(function () {
     startTest("Design")
 });
 
+for (i = 1; i <= 10; i++) {
+    localStorage.setItem("q" + i, "");
+}
+
+function isTextAttempted(testType) {
+    let userUid = "Anonymous";
+    if (firebase.auth().currentUser != null) {
+        user = firebase.auth().currentUser;
+        userUid = user.uid;
+    }
+    db = firebase.firestore()
+    var docRef = db.collection("users").doc(userUid);
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            if (doc.data()[testType] == "" || doc.data()[testType] == undefined)
+                startTest(testType)
+            else
+                showMessage("You can give a test only once for each domain", time = 4000)
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+
+
+}
+
 
 function startTest(testType) {
     var db = firebase.firestore();
@@ -34,16 +66,10 @@ function startTest(testType) {
             localStorage.setItem("domain", testType);
             startTimer(1)
             $("#text_box_heading").html(testType)
-            // querySnapshot.forEach(function (doc) {
-            //     // doc.data() is never undefined for query doc snapshots
-            //     console.log(doc.id, " => ", doc.data());
-
-            // });
         })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
         });
-
 }
 
 function setQuestionsData(querySnapshot) {
@@ -242,17 +268,17 @@ function startTimer(till = 11) {
     }, 1000);
 }
 
-// localStorage.setItem("domain","")
-// onVisibilityChange(function (visible) {
-//     if (!visible) {
-//         if (localStorage.getItem("domain") != "") {
-//             alert("Uh oh! You moved out. Cancelling Test.")
-//             localStorage.setItem("domain", "")
-//             location.reload(true);
-//         }
-//     }
-//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
-// });
+localStorage.setItem("domain", "")
+onVisibilityChange(function (visible) {
+    if (!visible) {
+        if (localStorage.getItem("domain") != "") {
+            alert("Uh oh! You moved out. Cancelling Test.")
+            localStorage.setItem("domain", "")
+            location.reload(true);
+        }
+    }
+    // console.log('the page is now', visible ? 'focused' : 'unfocused');
+});
 
 
 function onVisibilityChange(callback) {
@@ -331,4 +357,13 @@ function setUserDisplayName(uid) {
         console.log("Error getting document:", error);
     });
 
+}
+
+function showMessage(message, time = 2000, color = "green") {
+    Notify({
+        content: message,
+        color: color,
+        rounded: true,
+        timeout: time
+    });
 }
