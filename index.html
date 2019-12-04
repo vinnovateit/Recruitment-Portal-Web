@@ -366,7 +366,7 @@
 		}
 	</style>
 
-	<div class="parent" style="display:none">
+	<div class="parent" style="display:block">
 		<div class="div1"> </div>
 		<div class="div2 side_bar"> </div>
 		<div class="div3"> </div>
@@ -407,25 +407,58 @@
 
 		</div>
 	</div>
+<style type="text/css">
+div
+{
+	/*border: 2px solid red;*/
+}
+
+.parent {
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div100 { grid-area: 1 / 1 / 4 / 3; }
+.div101 { grid-area: 1 / 3 / 4 / 5; }
+.div102 { grid-area: 1 / 5 / 4 / 7; }
+.div103 { grid-area: 4 / 1 / 7 / 3; }
+.div104 { grid-area: 4 / 3 / 7 / 5; }
+.div105 { grid-area: 4 / 5 / 7 / 7; }
+.row
+{
+	/*border: 2px solid red;*/
+    margin: 0 auto;
+    width: 100%;
+}
+</style>
 
 
-	<!--questoin choosing part-->
-	<div class="container" id="yum_yum">
-		<div class="row">
-			<div class="col" id="hello">
+
+
+
+    
+<div class="row" style="display: none;">
+    <div class="row">
+        <div class="col-sm-4">
+        	<div class="col" id="hello">
 				<div id="aicard" class="card" style="width: 18rem;">
 					<img src=".\images\ai.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">AI/ML</h5>
 						<p class="card-text">In computer science,artificial intelligence, sometimes called machine
 							intelligence, is intelligence demonstrated by machines.</p>
-						<div id="aiBtn"
+						<a href="#"
 							style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-							class="btn btn-primary">Start Text</div>
+							class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
-			</div>
-			<div class="col" id="hello">
+			</div> 
+        </div>
+        <div class="col-sm-4">
+        	<div class="col" id="hello">
 				<div id="aicard" class="card" style="width: 18rem;">
 					<img src=".\images\and.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
@@ -433,105 +466,78 @@
 						<p class="card-text">Android software development is the process by which new applications are
 							created for devices running the Android operating
 							system.</p>
-						<a  id="androidBtn"
+						<a href="#"
 							style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-							class="btn btn-primary">Start Text</a>
+							class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col" id="hello">
+        </div>
+        <div class="col-sm-4">
+        	<div class="col" id="hello">
 				<div id="aicard" class="card" style="width: 18rem;">
-					<img id="photo" src=".\images\web.jpg" class="card-img-top" alt="...">
+					<img id="photo" src=".\images\web.jpg" class="card-img-top"
+						alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Web Dev</h5>
 						<p class="card-text">Web development is the work involved in developing a web site for the
 							Internet.</p>
-						<a  id="webBtn"
+						<a href="#"
 							style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-							class="btn btn-primary">Start Text</a>
+							class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
 			</div>
-			<div class="col" id="hello">
-				<div class="col" id="hello">
-					<div id="aicard" class="card" style="width: 18rem;">
-						<img src=".\images\iot.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">IOT</h5>
-							<p class="card-text">The Internet of Things (IoT) is a system of interrelated computing
-								devices.</p>
-							<a id="iotBtn"
-								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-								class="btn btn-primary">Start Text</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col" id="hello">
+        </div>
+        <div class="col-sm-4">
+        	<div class="col" id="hello">
 				<div id="aicard" class="card" style="width: 18rem;">
 					<img src=".\images\man.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Managment</h5>
 						<p class="card-text">Management (or managing) is the administration of an organization.</p>
-						<a id="managmentBtn"
+						<a href="#"
 							style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-							class="btn btn-primary">Start Text</a>
+							class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
-			</div>
-			<div class="col" id="hello">
+			</div> 
+        </div>
+        <div class="col-sm-4">
+        	<div class="col" id="hello">
 				<div id="aicard" class="card" style="width: 18rem;">
 					<img src=".\images\des.png" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Design</h5>
 						<p class="card-text">A design is a plan or specification for the construction of an object or
 							system.</p>
-						<a id="designBtn"
+						<a href="#"
 							style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
-							class="btn btn-primary">Start Text</a>
+							class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
+			</div> 
+        </div>
+        <div class="col-sm-4">
+        	<div class="col" id="hello">
+					<div id="aicard" class="card" style="width: 18rem;">
+						<img src=".\images\iot.jpg" class="card-img-top"
+							alt="...">
+						<div class="card-body">
+							<h5 class="card-title">IOT</h5>
+							<p class="card-text">The Internet of Things (IoT) is a system of interrelated computing
+								devices.</p>
+							<a href="#"
+								style='background: transparent linear-gradient(to right,#5F4D93, #E37682  )  no-repeat padding-box;'
+								class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+        </div>
+    </div>
+</div>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyANgcwz3vxkHaNjWGg-_S18-yh4ynawgZk",
-            authDomain: "viit-recruitment.firebaseapp.com",
-            databaseURL: "https://viit-recruitment.firebaseio.com",
-            projectId: "viit-recruitment",
-            storageBucket: "viit-recruitment.appspot.com",
-            messagingSenderId: "104919146647",
-            appId: "1:104919146647:web:e7a0b354083f57bbb649d2",
-            measurementId: "G-LE2D8TB0Q9"
-		};
-		
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
-<script src="./res/js/notify.min.js"></script>
-<script src="./res/js/index.js"></script>
 </body>
 
 </html>

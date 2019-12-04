@@ -30,13 +30,38 @@ function startTest(testType) {
         .limit(10)
         .get()
         .then(function (querySnapshot) {
+            setQuestionsData(querySnapshot);
             querySnapshot.forEach(function (doc) {
                 // doc.data() is never undefined for query doc snapshots
                 console.log(doc.id, " => ", doc.data());
+
             });
         })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
         });
 
+}
+
+function setQuestionsData(querySnapshot) {
+    i = 0;
+
+    for (i = 1; i <= 1; i++) {
+        $("#ques").html(querySnapshot.docs[0].data().question)
+    }
+
+
+    $("#domains").css("display","none")
+
+    $("#questions").css("display","block")
+    
+    // querySnapshot.forEach(function (doc) {
+    //     // doc.data() is never undefined for query doc snapshots
+
+    //     $("#ques").html(doc.data().questions)
+
+
+    //     i += 1;
+
+    // });
 }
