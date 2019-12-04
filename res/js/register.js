@@ -86,7 +86,7 @@ function saveUserDataToFirestore(args) {
         user = firebase.auth().currentUser;
         userUid = user.uid;
     }
-
+   
     db.collection("users").doc(userUid).set({
         name: args.nameVal,
         phoneNumber: args.mobNoVal,
