@@ -47,30 +47,35 @@ function setQuestionsData(querySnapshot) {
     i = 0;
 
     for (i = 1; i <= 2; i++) {
-        $("#qd").html(querySnapshot.docs[0].data().question)
+        $("#ques").html(querySnapshot.docs[0].data().question)
 
-        $("#op1").html(querySnapshot.docs[0].data().option.opt1)
-        $("#op2").html(querySnapshot.docs[0].data().option.opt2)
-        $("#op3").html(querySnapshot.docs[0].data().option.opt3)
-        $("#op4").html(querySnapshot.docs[0].data().option.opt4)
+        $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
+        $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
+        $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
+        $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
 
-        addListenersToQuesBtn(querySnapshot.docs[i-1].data(), i);
+        addListenersToQuesBtn(querySnapshot.docs[i - 1].data(), i);
     }
 
 
 
     $("#domains").css("display", "none")
 
-    $("#questions").css("display", "block")
+    $("#questions").css("display", "grid")
 }
+
+selectedQuestion = ""
+
 function addListenersToQuesBtn(doc, quesBtnNo) {
-    
-    $("#yum_" + quesBtnNo).click(() => {
-        alert("sj")
-        $("#qd").html(doc.question)
-        $("#op1").html(doc.option.opt1)
-        $("#op2").html(doc.option.opt2)
-        $("#op3").html(doc.option.opt3)
-        $("#op4").html(doc.option.opt4)
+
+    $("#q" + quesBtnNo).click(() => {
+        selectedQuestion = "q"+ quesBtnNo
+        $("#ques").html(doc.question)
+        $("#opt1").html(doc.option.opt1)
+        $("#opt2").html(doc.option.opt2)
+        $("#opt3").html(doc.option.opt3)
+        $("#opt4").html(doc.option.opt4)
     })
 }
+
+$("#arrow")
