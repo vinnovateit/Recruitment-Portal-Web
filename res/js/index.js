@@ -48,6 +48,11 @@ function setQuestionsData(querySnapshot) {
 
     for (i = 1; i <= 1; i++) {
         $("#ques").html(querySnapshot.docs[0].data().question)
+
+        $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
+        $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
+        $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
+        $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
     }
 
 
