@@ -63,6 +63,20 @@ function startTest(testType) {
         showMessage("Starting Test. Please wait...", 2400)
     }
 
+    if (testType == "Management") {
+        $(".div20").css("display", "block")
+        $(".div15").css("display", "none")
+        $(".div16").css("display", "none")
+        $(".div17").css("display", "none")
+        $(".div18").css("display", "none")
+    } else {
+        $(".div20").css("display", "none")
+        $(".div15").css("display", "block")
+        $(".div16").css("display", "block")
+        $(".div17").css("display", "block")
+        $(".div18").css("display", "block")
+    }
+
 
 
 
