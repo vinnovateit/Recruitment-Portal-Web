@@ -60,6 +60,8 @@ function startTest(testType) {
         showMessage("Starting Compulsory Aptitude Test. Please wait...", 2700)
     } else {
         showMessage("Starting Test. Please wait...", 2400)
+
+        showMessage("Do not move out of the test window or close your computer. You can re-attempt", 6400)
     }
 
     if (testType == "Management") {
