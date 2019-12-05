@@ -11,6 +11,19 @@
         {
             top: 9%;
         }
+        #box_progressText
+        {
+            border:2px solid red;
+             margin-bottom: 50px;
+        }
+        .circular-progress
+        {
+            margin-bottom: 50px;
+        }
+        /*div
+        {
+            border: 2px solid red;
+        }*/
     </style>
 </head>
 
@@ -24,7 +37,10 @@
             <div class="progress" id="signUpProgress">
                 <div class="circular-progress">
                     <progress class="pure-material-progress-circular "></progress>
-                    <p id="progressText">Please Wait...</p>
+                    <div id="box_progressText">
+                        <p id="progressText">Please Wait...</p>
+                    </div>
+                    
                 </div>
             </div>
         </center>
@@ -102,14 +118,19 @@
                     </center>
 
             </div>
-
+            <style type="text/css">
+                #number
+                {
+                }
+            </style>
 
 
             <div class=" left-footer">
                 <a href="https://vinnovateit.com/">Created by VinnovateIT Team</a><br />
                 <a href="https://www.instagram.com/vinnovateit/" target="_top">Instagram</a> &nbsp; | &nbsp;
                 <a href="https://www.facebook.com/VinnovateIT/?ref=br_rs" target="_top">Facebook</a>
-
+                <br>
+                <a id="number" href="#"><b> +91 7974905659</b></a>
             </div>
 
             <script src="https://code.jquery.com/jquery-3.4.1.min.js"
