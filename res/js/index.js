@@ -368,16 +368,16 @@ function startTimer(till = 10) {
 }
 
 localStorage.setItem("domain", "")
-// onVisibilityChange(function (visible) {
-//     if (!visible) {
-//         if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
-//             alert("Uh oh! You moved out. Cancelling Test.")
-//             localStorage.setItem("domain", "")
-//             location.reload(true);
-//         }
-//     }
-//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
-// });
+onVisibilityChange(function (visible) {
+    if (!visible) {
+        if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
+            alert("Uh oh! You moved out. Cancelling Test.")
+            localStorage.setItem("domain", "")
+            location.reload(true);
+        }
+    }
+    // console.log('the page is now', visible ? 'focused' : 'unfocused');
+});
 
 
 function onVisibilityChange(callback) {
