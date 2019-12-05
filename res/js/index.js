@@ -2,8 +2,8 @@
 
 
 $("#aiBtn").click(function () {
-    // isTextAttempted("AI")
-    startTest("AI")
+    isTextAttempted("AI")
+    // startTest("AI")
 });
 
 $("#androidBtn").click(function () {
@@ -40,8 +40,8 @@ function isTextAttempted(testType) {
         if (doc.exists) {
             if (doc.data()[testType] == "" || doc.data()[testType] == undefined)
                 startTest(testType)
-            elif(testType != "Aptitude")
-            showMessage("You can give a test only once for each domain", time = 4000)
+            else if (testType != "Aptitude")
+                showMessage("You can give a test only once for each domain", time = 4000)
 
         } else {
             // doc.data() will be undefined in this case
@@ -107,6 +107,7 @@ function startTest(testType) {
             localStorage.setItem("domain", testType);
             startTimer(10)
             $("#text_box_heading").html(testType)
+            lockTextAttempt(testType)
         })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
@@ -123,21 +124,18 @@ function setQuestionsData(querySnapshot) {
         quesEleId = i + 1
         // console.log(querySnapshot.docs[numArr[i]].id)
         $("#ques").html(querySnapshot.docs[0].data().question)
-        console.log(querySnapshot.docs[0].data().question + " and "+querySnapshot.docs[0].id)
-        console.log(querySnapshot.docs[0].data().option)
-        console.log(querySnapshot.docs[0].data())
-        try{
+        try {
             $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
             $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
             $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
             $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
-        }catch(e){
+        } catch (e) {
             $("#opt1").html(querySnapshot.docs[0].data()["option "].opt1)
             $("#opt2").html(querySnapshot.docs[0].data()["option "].opt2)
             $("#opt3").html(querySnapshot.docs[0].data()["option "].opt3)
             $("#opt4").html(querySnapshot.docs[0].data()["option "].opt4)
         }
-       
+
 
         // console.log(i + "  => " + numArr[i])
         addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id);
@@ -203,7 +201,7 @@ function submitAnswers() {
     saveAnswers(domain, selectedAnswers)
 }
 
-function saveAnswers(domain, selectedAnswers) {
+function saveAnswers(domain, selectedAnswers, shouldReload = true) {
     var db = firebase.firestore();
     let userUid = "Anonymous";
     if (firebase.auth().currentUser != null) {
@@ -217,13 +215,15 @@ function saveAnswers(domain, selectedAnswers) {
         data
     ).then(function () {
         //TODO Show successfully submitted bug report show thank you message just after the button
-        Notify({
-            content: 'Submitted. Please wait while we redirect you.',
-            color: 'green',
-            rounded: true,
-            timeout: 2000
-        });
-        location.reload(true)
+        if (shouldReload) {
+            Notify({
+                content: 'Submitted. Please wait while we redirect you.',
+                color: 'green',
+                rounded: true,
+                timeout: 2000
+            });
+            location.reload(true)
+        }
     }).catch(function (error) {
         var errorMessage = error.message;
         // console.error("Error writing document: ", error);
@@ -329,16 +329,16 @@ function startTimer(till = 10) {
 }
 
 localStorage.setItem("domain", "")
-// onVisibilityChange(function (visible) {
-//     if (!visible) {
-//         if (localStorage.getItem("domain") != "") {
-//             alert("Uh oh! You moved out. Cancelling Test.")
-//             localStorage.setItem("domain", "")
-//             location.reload(true);
-//         }
-//     }
-//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
-// });
+onVisibilityChange(function (visible) {
+    if (!visible) {
+        if (localStorage.getItem("domain") != "") {
+            alert("Uh oh! You moved out. Cancelling Test.")
+            localStorage.setItem("domain", "")
+            location.reload(true);
+        }
+    }
+    // console.log('the page is now', visible ? 'focused' : 'unfocused');
+});
 
 
 function onVisibilityChange(callback) {
@@ -469,4 +469,10 @@ fileButton.addEventListener('change', function (e) {
     }, function complete() {
 
     });
-});  
+});
+
+
+
+function lockTextAttempt(testType) {
+    saveAnswers(testType, "", false)
+}
