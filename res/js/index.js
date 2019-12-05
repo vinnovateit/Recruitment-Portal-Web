@@ -58,6 +58,7 @@ function isTextAttempted(testType) {
 function startTest(testType) {
     if (testType == "Aptitude") {
         showMessage("Starting Compulsory Aptitude Test. Please wait...", 2700)
+        showMessage("Do not move out of the test window or close your computer. You can re-attempt", 6400)
     } else {
         showMessage("Starting Test. Please wait...", 2400)
 
