@@ -103,7 +103,7 @@ function startTest(testType) {
         .get()
         .then(function (querySnapshot) {
             querySnapshot.docs = shuffle(querySnapshot.docs);
-            setQuestionsData(querySnapshot);
+            setQuestionsData(querySnapshot, testType);
             localStorage.setItem("domain", testType);
             startTimer(10)
             $("#text_box_heading").html(testType)
@@ -115,7 +115,7 @@ function startTest(testType) {
 }
 
 questIdObj = {}
-function setQuestionsData(querySnapshot) {
+function setQuestionsData(querySnapshot, testType) {
     i = 0;
     numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     numArr = shuffle(numArr)
@@ -124,16 +124,26 @@ function setQuestionsData(querySnapshot) {
         quesEleId = i + 1
         // console.log(querySnapshot.docs[numArr[i]].id)
         $("#ques").html(querySnapshot.docs[0].data().question)
-        try {
-            $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
-            $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
-            $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
-            $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
-        } catch (e) {
-            $("#opt1").html(querySnapshot.docs[0].data()["option "].opt1)
-            $("#opt2").html(querySnapshot.docs[0].data()["option "].opt2)
-            $("#opt3").html(querySnapshot.docs[0].data()["option "].opt3)
-            $("#opt4").html(querySnapshot.docs[0].data()["option "].opt4)
+        // alert(testType)
+        if (testType == "Design") {
+            continue
+        }
+        if (testType != "Management") {
+            try {
+                $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
+                $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
+                $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
+                $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
+            } catch (e) {
+                try {
+                    $("#opt1").html(querySnapshot.docs[0].data()["option "].opt1)
+                    $("#opt2").html(querySnapshot.docs[0].data()["option "].opt2)
+                    $("#opt3").html(querySnapshot.docs[0].data()["option "].opt3)
+                    $("#opt4").html(querySnapshot.docs[0].data()["option "].opt4)
+                } catch (err) {
+                    console.log(err)
+                }
+            }
         }
 
 
@@ -474,5 +484,5 @@ fileButton.addEventListener('change', function (e) {
 
 
 function lockTextAttempt(testType) {
-    saveAnswers(testType, "", false)
+    saveAnswers(testType, "started", false)
 }
