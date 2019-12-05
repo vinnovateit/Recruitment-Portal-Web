@@ -75,6 +75,9 @@ function startTest(testType) {
 
         $(".div21").css("display", "none")
         $("#ques").css("display", "block")
+        $(".ques_boxes").css("display", "block")
+        $(".side_bar").css("display", "block")
+        $(".div19").css("display", "block")
 
     } else if (testType == "Design") {
         $(".div20").css("display", "none")
@@ -86,6 +89,10 @@ function startTest(testType) {
 
         $(".div21").css("display", "block")
         $("#ques").css("display", "none")
+        $(".ques_boxes").css("display", "none")
+        $(".side_bar").css("display", "none")
+        $(".div19").css("display", "none")
+
     } else {
         $(".div20").css("display", "none")
 
@@ -96,6 +103,9 @@ function startTest(testType) {
 
         $(".div21").css("display", "none")
         $("#ques").css("display", "block")
+        $(".ques_boxes").css("display", "block")
+        $(".side_bar").css("display", "block")
+        $(".div19").css("display", "block")
     }
 
 
