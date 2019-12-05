@@ -143,16 +143,16 @@ function setQuestionsData(querySnapshot, testType) {
         }
         if (testType != "Management") {
             try {
-                $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
-                $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
-                $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
-                $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
+                $("#opt1").html(querySnapshot.docs[numArr[0]].data().option.opt1)
+                $("#opt2").html(querySnapshot.docs[numArr[0]].data().option.opt2)
+                $("#opt3").html(querySnapshot.docs[numArr[0]].data().option.opt3)
+                $("#opt4").html(querySnapshot.docs[numArr[0]].data().option.opt4)
             } catch (e) {
                 try {
-                    $("#opt1").html(querySnapshot.docs[0].data()["option "].opt1)
-                    $("#opt2").html(querySnapshot.docs[0].data()["option "].opt2)
-                    $("#opt3").html(querySnapshot.docs[0].data()["option "].opt3)
-                    $("#opt4").html(querySnapshot.docs[0].data()["option "].opt4)
+                    $("#opt1").html(querySnapshot.docs[numArr[0]].data()["option "].opt1)
+                    $("#opt2").html(querySnapshot.docs[numArr[0]].data()["option "].opt2)
+                    $("#opt3").html(querySnapshot.docs[numArr[0]].data()["option "].opt3)
+                    $("#opt4").html(querySnapshot.docs[numArr[0]].data()["option "].opt4)
                 } catch (err) {
                     console.log(err)
                 }
@@ -166,6 +166,7 @@ function setQuestionsData(querySnapshot, testType) {
         questIdObj["q" + quesEleId] = querySnapshot.docs[numArr[i]].id
 
         localStorage.setItem(questIdObj["q" + quesEleId], "");
+
 
 
     }
@@ -362,16 +363,16 @@ function startTimer(till = 10) {
 }
 
 localStorage.setItem("domain", "")
-onVisibilityChange(function (visible) {
-    if (!visible) {
-        if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
-            alert("Uh oh! You moved out. Cancelling Test.")
-            localStorage.setItem("domain", "")
-            location.reload(true);
-        }
-    }
-    // console.log('the page is now', visible ? 'focused' : 'unfocused');
-});
+// onVisibilityChange(function (visible) {
+//     if (!visible) {
+//         if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
+//             alert("Uh oh! You moved out. Cancelling Test.")
+//             localStorage.setItem("domain", "")
+//             location.reload(true);
+//         }
+//     }
+//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
+// });
 
 
 function onVisibilityChange(callback) {
