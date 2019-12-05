@@ -69,12 +69,22 @@ function startTest(testType) {
         $(".div16").css("display", "none")
         $(".div17").css("display", "none")
         $(".div18").css("display", "none")
+        $(".div21").css("display", "none")
+
+    } else if (testType == "Design") {
+        $(".div20").css("display", "none")
+        $(".div15").css("display", "none")
+        $(".div16").css("display", "none")
+        $(".div17").css("display", "none")
+        $(".div18").css("display", "none")
+        $(".div21").css("display", "block")
     } else {
         $(".div20").css("display", "none")
         $(".div15").css("display", "block")
         $(".div16").css("display", "block")
         $(".div17").css("display", "block")
         $(".div18").css("display", "block")
+        $(".div21").css("display", "none")
     }
 
 
@@ -371,6 +381,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 function setUserDisplayNameAndCheckAptTest(uid) {
     db = firebase.firestore()
+
     var docRef = db.collection("users").doc(uid);
 
     docRef.get().then(function (doc) {
@@ -408,3 +419,32 @@ function showMessage(message, time = 2000, color = "green") {
         timeout: time
     });
 }
+
+
+
+
+//File Upload for design 
+var uploader = document.getElementById('uploader');
+var fileButton = document.getElementById('fileButton');
+fileButton.addEventListener('change', function (e) {
+
+    let userUid = "Anonymous";
+    if (firebase.auth().currentUser != null) {
+        user = firebase.auth().currentUser;
+        userUid = user.uid;
+    }
+
+    var file = e.target.files[0];
+    var storageRef = firebase.storage().ref('img/' + userUid + '/' + file.name);
+    var task = storageRef.put(file);
+    task.on('state_changed', function progress(snapshot) {
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        uploader.value = percentage;
+
+    }, function error(err) {
+
+
+    }, function complete() {
+
+    });
+});  

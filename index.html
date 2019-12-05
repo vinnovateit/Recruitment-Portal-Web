@@ -309,18 +309,26 @@
 
 
 		}
-		.div20 { 
-					grid-area: 4 / 2 / 7 / 6;
-					padding-left: 8px;
-					
-			 }
-			.div30
-			{
-				box-shadow: 2px 3px 3px -2px;
-				width: 100%;
-					border-radius: 5px;
-					height: 65px;
-			}
+
+		.div20 {
+			grid-area: 4 / 2 / 7 / 6;
+			padding-left: 8px;
+
+		}
+
+		.div30 {
+			box-shadow: 2px 3px 3px -2px;
+			width: 100%;
+			border-radius: 5px;
+			height: 65px;
+		}
+
+		.div21 {
+			grid-area: 4 / 2 / 7 / 6;
+			padding-left: 8px;
+
+		}
+
 		.side_bar {
 			background: transparent linear-gradient(#5F4D93, #E37682) 0% 0% no-repeat padding-box;
 			border-bottom-left-radius: 25px;
@@ -410,9 +418,16 @@
 		<div class="div13 ques_boxes" id="q10">Q10</div>
 		<div class="div14" id="ques">Which of the following statements correctly states Newton's first law of motion?
 		</div>
-		<div class="div20" 	rows="10" style="display:none"> 
-			<textarea rows="10" required="required" placeholder="Your answer here" maxlength="100" autofocus="true" class="div30" type="textarea" name=""></textarea> 
+		<div class="div20" rows="10" style="display:none">
+			<textarea rows="10" required="required" placeholder="Your answer here" maxlength="100" autofocus="true"
+				class="div30" type="textarea" name=""></textarea>
 		</div>
+
+		<div class="div21" rows="20" style="display: none;">
+			<progress id="uploader" value="0" max="100">0%</progress>
+			<input type="file" id="fileButton" value="upload" />
+		</div>
+
 		<div class="div15  ">
 			<div class="options" id="opt1">
 				<div class="side-shad">
