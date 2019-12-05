@@ -192,9 +192,9 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 
 $("#arrow").click(() => {
     if (selectedQuestion == "q10") {
-        if (confirm("Are you sure you want to submit your answes?")) {
+        // if (confirm("Are you sure you want to submit your answes?")) {
             submitAnswers()
-        }
+        // }
     } else {
         $("#q" + parseInt(parseInt(selectedQuestion.substring(1, selectedQuestion.length)) + 1)).click()
     }
@@ -344,7 +344,7 @@ function startTimer(till = 10) {
 localStorage.setItem("domain", "")
 onVisibilityChange(function (visible) {
     if (!visible) {
-        if (localStorage.getItem("domain") != "") {
+        if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
             alert("Uh oh! You moved out. Cancelling Test.")
             localStorage.setItem("domain", "")
             location.reload(true);
@@ -487,5 +487,5 @@ fileButton.addEventListener('change', function (e) {
 
 
 function lockTextAttempt(testType) {
-    saveAnswers(testType, "started", false)
+    // saveAnswers(testType, "started", false)
 }
