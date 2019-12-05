@@ -65,26 +65,35 @@ function startTest(testType) {
 
     if (testType == "Management") {
         $(".div20").css("display", "block")
+
         $(".div15").css("display", "none")
         $(".div16").css("display", "none")
         $(".div17").css("display", "none")
         $(".div18").css("display", "none")
+
         $(".div21").css("display", "none")
+        $("#ques").css("display", "block")
 
     } else if (testType == "Design") {
         $(".div20").css("display", "none")
+
         $(".div15").css("display", "none")
         $(".div16").css("display", "none")
         $(".div17").css("display", "none")
         $(".div18").css("display", "none")
+
         $(".div21").css("display", "block")
+        $("#ques").css("display", "none")
     } else {
         $(".div20").css("display", "none")
+
         $(".div15").css("display", "block")
         $(".div16").css("display", "block")
         $(".div17").css("display", "block")
         $(".div18").css("display", "block")
+
         $(".div21").css("display", "none")
+        $("#ques").css("display", "block")
     }
 
 
