@@ -41,7 +41,7 @@ function isTextAttempted(testType) {
             if (doc.data()[testType] == "" || doc.data()[testType] == undefined)
                 startTest(testType)
             else if (testType != "Aptitude")
-                showMessage("You can give a test only once for each domain", time = 4000)
+                showMessage("You can Submit a test only once for each domain", time = 4000)
 
         } else {
             // doc.data() will be undefined in this case
@@ -58,8 +58,11 @@ function isTextAttempted(testType) {
 function startTest(testType) {
     if (testType == "Aptitude") {
         showMessage("Starting Compulsory Aptitude Test. Please wait...", 2700)
+        showMessage("Do not move out of the test window or close your computer. Test would cancelled!", 6400)
     } else {
         showMessage("Starting Test. Please wait...", 2400)
+
+        showMessage("Do not move out of the test window or close your computer. Test would cancelled!", 6400)
     }
 
     if (testType == "Management") {
@@ -72,6 +75,9 @@ function startTest(testType) {
 
         $(".div21").css("display", "none")
         $("#ques").css("display", "block")
+        $(".ques_boxes").css("display", "block")
+        $(".side_bar").css("display", "block")
+        $(".div19").css("display", "block")
 
     } else if (testType == "Design") {
         $(".div20").css("display", "none")
@@ -83,6 +89,10 @@ function startTest(testType) {
 
         $(".div21").css("display", "block")
         $("#ques").css("display", "none")
+        $(".ques_boxes").css("display", "none")
+        $(".side_bar").css("display", "none")
+        $(".div19").css("display", "none")
+
     } else {
         $(".div20").css("display", "none")
 
@@ -93,6 +103,9 @@ function startTest(testType) {
 
         $(".div21").css("display", "none")
         $("#ques").css("display", "block")
+        $(".ques_boxes").css("display", "block")
+        $(".side_bar").css("display", "block")
+        $(".div19").css("display", "block")
     }
 
 
@@ -103,7 +116,7 @@ function startTest(testType) {
         .get()
         .then(function (querySnapshot) {
             querySnapshot.docs = shuffle(querySnapshot.docs);
-            setQuestionsData(querySnapshot);
+            setQuestionsData(querySnapshot, testType);
             localStorage.setItem("domain", testType);
             startTimer(10)
             $("#text_box_heading").html(testType)
@@ -115,7 +128,7 @@ function startTest(testType) {
 }
 
 questIdObj = {}
-function setQuestionsData(querySnapshot) {
+function setQuestionsData(querySnapshot, testType) {
     i = 0;
     numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     numArr = shuffle(numArr)
@@ -124,18 +137,29 @@ function setQuestionsData(querySnapshot) {
         quesEleId = i + 1
         // console.log(querySnapshot.docs[numArr[i]].id)
         $("#ques").html(querySnapshot.docs[0].data().question)
-        try {
-            $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
-            $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
-            $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
-            $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
-        } catch (e) {
-            $("#opt1").html(querySnapshot.docs[0].data()["option "].opt1)
-            $("#opt2").html(querySnapshot.docs[0].data()["option "].opt2)
-            $("#opt3").html(querySnapshot.docs[0].data()["option "].opt3)
-            $("#opt4").html(querySnapshot.docs[0].data()["option "].opt4)
+        // alert(testType)
+        if (testType == "Design") {
+            continue
         }
+        // if (testType != "Management") {
+        //     try {
+        //         $("#opt1").html(querySnapshot.docs[numArr[0]].data().option.opt1)
+        //         $("#opt2").html(querySnapshot.docs[numArr[0]].data().option.opt2)
+        //         $("#opt3").html(querySnapshot.docs[numArr[0]].data().option.opt3)
+        //         $("#opt4").html(querySnapshot.docs[numArr[0]].data().option.opt4)
+        //     } catch (e) {
+        //         try {
+        //             $("#opt1").html(querySnapshot.docs[numArr[0]].data()["option "].opt1)
+        //             $("#opt2").html(querySnapshot.docs[numArr[0]].data()["option "].opt2)
+        //             $("#opt3").html(querySnapshot.docs[numArr[0]].data()["option "].opt3)
+        //             $("#opt4").html(querySnapshot.docs[numArr[0]].data()["option "].opt4)
+        //         } catch (err) {
+        //             console.log(err)
+        //         }
+        //     }
+        // }
 
+        
 
         // console.log(i + "  => " + numArr[i])
         addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id);
@@ -143,6 +167,9 @@ function setQuestionsData(querySnapshot) {
         questIdObj["q" + quesEleId] = querySnapshot.docs[numArr[i]].id
 
         localStorage.setItem(questIdObj["q" + quesEleId], "");
+
+        
+
 
 
     }
@@ -153,6 +180,8 @@ function setQuestionsData(querySnapshot) {
     $("#domains").css("display", "none")
 
     $("#questions").css("display", "grid")
+
+    $("#q1").click()
 }
 
 selectedQuestion = "q1"
@@ -160,14 +189,24 @@ selectedQuestion = "q1"
 function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 
     $("#q" + quesBtnNo).click(() => {
+        // console.log(docId)
+        // console.log(doc)
         optReset([1, 2, 3, 4])
         selectedQuestion = "q" + quesBtnNo
-        console.log(quesBtnNo)
+        // console.log(quesBtnNo)
         $("#ques").html(doc.question)
-        $("#opt1").html(doc.option.opt1)
-        $("#opt2").html(doc.option.opt2)
-        $("#opt3").html(doc.option.opt3)
-        $("#opt4").html(doc.option.opt4)
+        try{
+            $("#opt1").html(doc.option.opt1)
+            $("#opt2").html(doc.option.opt2)
+            $("#opt3").html(doc.option.opt3)
+            $("#opt4").html(doc.option.opt4)
+        }catch(e){
+            $("#opt1").html(doc["option "].opt1)
+            $("#opt2").html(doc["option "].opt2)
+            $("#opt3").html(doc["option "].opt3)
+            $("#opt4").html(doc["option "].opt4)
+        }
+       
 
         // $("#ques").addClass(docId)
         if (localStorage.getItem(questIdObj[selectedQuestion]) != "") {
@@ -179,9 +218,9 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 
 $("#arrow").click(() => {
     if (selectedQuestion == "q10") {
-        if (confirm("Are you sure you want to submit your answes?")) {
-            submitAnswers()
-        }
+        // if (confirm("Are you sure you want to submit your answes?")) {
+        submitAnswers()
+        // }
     } else {
         $("#q" + parseInt(parseInt(selectedQuestion.substring(1, selectedQuestion.length)) + 1)).click()
     }
@@ -329,16 +368,16 @@ function startTimer(till = 10) {
 }
 
 localStorage.setItem("domain", "")
-onVisibilityChange(function (visible) {
-    if (!visible) {
-        if (localStorage.getItem("domain") != "") {
-            alert("Uh oh! You moved out. Cancelling Test.")
-            localStorage.setItem("domain", "")
-            location.reload(true);
-        }
-    }
-    // console.log('the page is now', visible ? 'focused' : 'unfocused');
-});
+// onVisibilityChange(function (visible) {
+//     if (!visible) {
+//         if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
+//             alert("Uh oh! You moved out. Cancelling Test.")
+//             localStorage.setItem("domain", "")
+//             location.reload(true);
+//         }
+//     }
+//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
+// });
 
 
 function onVisibilityChange(callback) {
@@ -459,20 +498,24 @@ fileButton.addEventListener('change', function (e) {
     var file = e.target.files[0];
     var storageRef = firebase.storage().ref('img/' + userUid + '/' + file.name);
     var task = storageRef.put(file);
+    showMessage("Submitting File")
     task.on('state_changed', function progress(snapshot) {
         var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         uploader.value = percentage;
 
     }, function error(err) {
-
-
+        console.error(err)
+        showMessage("Error in uploading files :(", 2000, "red")
     }, function complete() {
-
+        showMessage("File Uploaded/Submitted Succesfully")
+        setTimeout(function () {
+            location.reload(true)
+        }, 1000);
     });
 });
 
 
 
 function lockTextAttempt(testType) {
-    saveAnswers(testType, "", false)
+    // saveAnswers(testType, "started", false)
 }

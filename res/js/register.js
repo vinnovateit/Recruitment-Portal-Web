@@ -38,7 +38,7 @@ function onSignupClick() {
         $("#mobNoErr").css("display", "none")
     }
 
-    if (!(/^[a-z0-9A-Z.]{0,}[a-zA-Z]{0,2}2019@vitstudent.ac.in$/i.test(emailVal))) {
+    if (!(/^[a-z0-9A-Z.]{0,}[a-zA-Z]{0,2}2019[a-zA-Z]{0,1}@vitstudent.ac.in$/i.test(emailVal))) {
         $('#emailErr').css("display", "block")
         isSignupValid = false
     } else {
@@ -142,7 +142,7 @@ function onLoginClick() {
 
 
     isLoginValid = true
-    if (!(/^[a-z0-9A-Z.]{0,}2019@vitstudent.ac.in$/i.test(args.emailVal))) {
+    if (!(/^[a-z0-9A-Z.]{0,}2019[a-zA-Z]{0,1}@vitstudent.ac.in$/i.test(args.emailVal))) {
         $('#emailErrLo').css("display", "block")
         isLoginValid = false
     } else {
