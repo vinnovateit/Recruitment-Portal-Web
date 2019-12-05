@@ -183,14 +183,24 @@ selectedQuestion = "q1"
 function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 
     $("#q" + quesBtnNo).click(() => {
+        // console.log(docId)
+        // console.log(doc)
         optReset([1, 2, 3, 4])
         selectedQuestion = "q" + quesBtnNo
-        console.log(quesBtnNo)
+        // console.log(quesBtnNo)
         $("#ques").html(doc.question)
-        $("#opt1").html(doc.option.opt1)
-        $("#opt2").html(doc.option.opt2)
-        $("#opt3").html(doc.option.opt3)
-        $("#opt4").html(doc.option.opt4)
+        try{
+            $("#opt1").html(doc.option.opt1)
+            $("#opt2").html(doc.option.opt2)
+            $("#opt3").html(doc.option.opt3)
+            $("#opt4").html(doc.option.opt4)
+        }catch(e){
+            $("#opt1").html(doc["option "].opt1)
+            $("#opt2").html(doc["option "].opt2)
+            $("#opt3").html(doc["option "].opt3)
+            $("#opt4").html(doc["option "].opt4)
+        }
+       
 
         // $("#ques").addClass(docId)
         if (localStorage.getItem(questIdObj[selectedQuestion]) != "") {
