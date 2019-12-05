@@ -489,8 +489,9 @@ fileButton.addEventListener('change', function (e) {
 
     }, function error(err) {
         console.error(err)
+        showMessage("Error in uploading files :(", 2000, "red")
     }, function complete() {
-        showMessage("File Uploaded/Submitted")
+        showMessage("File Uploaded/Submitted Succesfully")
         setTimeout(function () {
             location.reload(true)
         }, 1000);
