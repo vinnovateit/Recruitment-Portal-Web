@@ -106,7 +106,7 @@ function startTest(testType) {
             querySnapshot.docs = shuffle(querySnapshot.docs);
             setQuestionsData(querySnapshot);
             localStorage.setItem("domain", testType);
-            startTimer(11)
+            startTimer(10)
             $("#text_box_heading").html(testType)
         })
         .catch(function (error) {
@@ -277,7 +277,7 @@ function shuffle(a) {
     return a;
 }
 
-function startTimer(till = 11) {
+function startTimer(till = 10) {
     $("#timer").css("display", "block")
     var now = new Date();
     now.setMinutes(now.getMinutes() + till); // timestamp
