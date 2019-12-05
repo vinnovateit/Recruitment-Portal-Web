@@ -41,7 +41,7 @@ function isTextAttempted(testType) {
             if (doc.data()[testType] == "" || doc.data()[testType] == undefined)
                 startTest(testType)
             else if (testType != "Aptitude")
-                showMessage("You can give a test only once for each domain", time = 4000)
+                showMessage("You can Submit a test only once for each domain", time = 4000)
 
         } else {
             // doc.data() will be undefined in this case
@@ -481,7 +481,7 @@ fileButton.addEventListener('change', function (e) {
         console.error(err)
     }, function complete() {
         showMessage("File Uploaded/Submitted")
-        setTimeout(function(){
+        setTimeout(function () {
             location.reload(true)
         }, 1000);
     });
