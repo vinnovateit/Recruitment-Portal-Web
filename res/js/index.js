@@ -57,7 +57,6 @@ function isTextAttempted(testType) {
 
 function startTest(testType) {
     if (testType == "Aptitude") {
-        testType = "AI"
         showMessage("Starting Compulsory Aptitude Test. Please wait...", 2700)
     } else {
         showMessage("Starting Test. Please wait...", 2400)
