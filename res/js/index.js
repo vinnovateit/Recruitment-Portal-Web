@@ -40,7 +40,7 @@ function isTextAttempted(testType) {
         if (doc.exists) {
             if (doc.data()[testType] == "" || doc.data()[testType] == undefined)
                 startTest(testType)
-            else
+            elif(testType != "Aptitude")
                 showMessage("You can give a test only once for each domain", time = 4000)
 
         } else {
