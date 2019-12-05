@@ -141,24 +141,25 @@ function setQuestionsData(querySnapshot, testType) {
         if (testType == "Design") {
             continue
         }
-        if (testType != "Management") {
-            try {
-                $("#opt1").html(querySnapshot.docs[numArr[0]].data().option.opt1)
-                $("#opt2").html(querySnapshot.docs[numArr[0]].data().option.opt2)
-                $("#opt3").html(querySnapshot.docs[numArr[0]].data().option.opt3)
-                $("#opt4").html(querySnapshot.docs[numArr[0]].data().option.opt4)
-            } catch (e) {
-                try {
-                    $("#opt1").html(querySnapshot.docs[numArr[0]].data()["option "].opt1)
-                    $("#opt2").html(querySnapshot.docs[numArr[0]].data()["option "].opt2)
-                    $("#opt3").html(querySnapshot.docs[numArr[0]].data()["option "].opt3)
-                    $("#opt4").html(querySnapshot.docs[numArr[0]].data()["option "].opt4)
-                } catch (err) {
-                    console.log(err)
-                }
-            }
-        }
+        // if (testType != "Management") {
+        //     try {
+        //         $("#opt1").html(querySnapshot.docs[numArr[0]].data().option.opt1)
+        //         $("#opt2").html(querySnapshot.docs[numArr[0]].data().option.opt2)
+        //         $("#opt3").html(querySnapshot.docs[numArr[0]].data().option.opt3)
+        //         $("#opt4").html(querySnapshot.docs[numArr[0]].data().option.opt4)
+        //     } catch (e) {
+        //         try {
+        //             $("#opt1").html(querySnapshot.docs[numArr[0]].data()["option "].opt1)
+        //             $("#opt2").html(querySnapshot.docs[numArr[0]].data()["option "].opt2)
+        //             $("#opt3").html(querySnapshot.docs[numArr[0]].data()["option "].opt3)
+        //             $("#opt4").html(querySnapshot.docs[numArr[0]].data()["option "].opt4)
+        //         } catch (err) {
+        //             console.log(err)
+        //         }
+        //     }
+        // }
 
+        
 
         // console.log(i + "  => " + numArr[i])
         addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id);
@@ -166,6 +167,8 @@ function setQuestionsData(querySnapshot, testType) {
         questIdObj["q" + quesEleId] = querySnapshot.docs[numArr[i]].id
 
         localStorage.setItem(questIdObj["q" + quesEleId], "");
+
+        
 
 
 
@@ -177,6 +180,8 @@ function setQuestionsData(querySnapshot, testType) {
     $("#domains").css("display", "none")
 
     $("#questions").css("display", "grid")
+
+    $("#q1").click()
 }
 
 selectedQuestion = "q1"
