@@ -193,7 +193,7 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
 $("#arrow").click(() => {
     if (selectedQuestion == "q10") {
         // if (confirm("Are you sure you want to submit your answes?")) {
-            submitAnswers()
+        submitAnswers()
         // }
     } else {
         $("#q" + parseInt(parseInt(selectedQuestion.substring(1, selectedQuestion.length)) + 1)).click()
@@ -472,15 +472,18 @@ fileButton.addEventListener('change', function (e) {
     var file = e.target.files[0];
     var storageRef = firebase.storage().ref('img/' + userUid + '/' + file.name);
     var task = storageRef.put(file);
+    showMessage("Submitting File")
     task.on('state_changed', function progress(snapshot) {
         var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         uploader.value = percentage;
 
     }, function error(err) {
-
-
+        console.error(err)
     }, function complete() {
-
+        showMessage("File Uploaded/Submitted")
+        setTimeout(function(){
+            location.reload(true)
+        }, 1000);
     });
 });
 
