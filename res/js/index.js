@@ -41,7 +41,7 @@ function isTextAttempted(testType) {
             if (doc.data()[testType] == "" || doc.data()[testType] == undefined)
                 startTest(testType)
             elif(testType != "Aptitude")
-                showMessage("You can give a test only once for each domain", time = 4000)
+            showMessage("You can give a test only once for each domain", time = 4000)
 
         } else {
             // doc.data() will be undefined in this case
@@ -109,7 +109,7 @@ function startTest(testType) {
             $("#text_box_heading").html(testType)
         })
         .catch(function (error) {
-            // console.log("Error getting documents: ", error);
+            console.log("Error getting documents: ", error);
         });
 }
 
@@ -119,12 +119,25 @@ function setQuestionsData(querySnapshot) {
     numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     numArr = shuffle(numArr)
     for (i = 0; i < numArr.length; i++) {
+
         quesEleId = i + 1
+        // console.log(querySnapshot.docs[numArr[i]].id)
         $("#ques").html(querySnapshot.docs[0].data().question)
-        $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
-        $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
-        $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
-        $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
+        console.log(querySnapshot.docs[0].data().question + " and "+querySnapshot.docs[0].id)
+        console.log(querySnapshot.docs[0].data().option)
+        console.log(querySnapshot.docs[0].data())
+        try{
+            $("#opt1").html(querySnapshot.docs[0].data().option.opt1)
+            $("#opt2").html(querySnapshot.docs[0].data().option.opt2)
+            $("#opt3").html(querySnapshot.docs[0].data().option.opt3)
+            $("#opt4").html(querySnapshot.docs[0].data().option.opt4)
+        }catch(e){
+            $("#opt1").html(querySnapshot.docs[0].data()["option "].opt1)
+            $("#opt2").html(querySnapshot.docs[0].data()["option "].opt2)
+            $("#opt3").html(querySnapshot.docs[0].data()["option "].opt3)
+            $("#opt4").html(querySnapshot.docs[0].data()["option "].opt4)
+        }
+       
 
         // console.log(i + "  => " + numArr[i])
         addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id);
@@ -132,6 +145,7 @@ function setQuestionsData(querySnapshot) {
         questIdObj["q" + quesEleId] = querySnapshot.docs[numArr[i]].id
 
         localStorage.setItem(questIdObj["q" + quesEleId], "");
+
 
     }
 
