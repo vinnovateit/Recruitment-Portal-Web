@@ -129,6 +129,8 @@ function startTest(testType) {
 
 questIdObj = {}
 function setQuestionsData(querySnapshot, testType) {
+    localStorage.setItem("domain", testType)
+
     i = 0;
     numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     numArr = shuffle(numArr)
@@ -159,16 +161,16 @@ function setQuestionsData(querySnapshot, testType) {
         //     }
         // }
 
-        
+
 
         // console.log(i + "  => " + numArr[i])
-        addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id);
+        addListenersToQuesBtn(querySnapshot.docs[numArr[i]].data(), quesEleId, querySnapshot.docs[numArr[i]].id, testType);
 
         questIdObj["q" + quesEleId] = querySnapshot.docs[numArr[i]].id
 
         localStorage.setItem(questIdObj["q" + quesEleId], "");
 
-        
+
 
 
 
@@ -186,7 +188,7 @@ function setQuestionsData(querySnapshot, testType) {
 
 selectedQuestion = "q1"
 
-function addListenersToQuesBtn(doc, quesBtnNo, docId) {
+function addListenersToQuesBtn(doc, quesBtnNo, docId, testType) {
 
     $("#q" + quesBtnNo).click(() => {
         // console.log(docId)
@@ -194,24 +196,45 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId) {
         optReset([1, 2, 3, 4])
         selectedQuestion = "q" + quesBtnNo
         // console.log(quesBtnNo)
+        // alert(testType)
+
         $("#ques").html(doc.question)
-        try{
-            $("#opt1").html(doc.option.opt1)
-            $("#opt2").html(doc.option.opt2)
-            $("#opt3").html(doc.option.opt3)
-            $("#opt4").html(doc.option.opt4)
-        }catch(e){
-            $("#opt1").html(doc["option "].opt1)
-            $("#opt2").html(doc["option "].opt2)
-            $("#opt3").html(doc["option "].opt3)
-            $("#opt4").html(doc["option "].opt4)
+
+        if (testType != "Management") {
+            try {
+                $("#opt1").html(doc.option.opt1)
+                $("#opt2").html(doc.option.opt2)
+                $("#opt3").html(doc.option.opt3)
+                $("#opt4").html(doc.option.opt4)
+            } catch (e) {
+                $("#opt1").html(doc["option "].opt1)
+                $("#opt2").html(doc["option "].opt2)
+                $("#opt3").html(doc["option "].opt3)
+                $("#opt4").html(doc["option "].opt4)
+            }
+
+        } else {
+            if (localStorage.getItem("domain") == "Management") {
+                localStorage.setItem(questIdObj[selectedQuestion], $("#mgmtTextArea").val());
+                $("#mgmtTextArea").val("")
+            }
         }
-       
+
+
+        // alert(testType)
+
+
 
         // $("#ques").addClass(docId)
+        if (testType == "Management") {
+            $("#mgmtTextArea").val(localStorage.getItem(questIdObj[selectedQuestion]))
+            // console.log(localStorage.getItem(questIdObj[selectedQuestion]))
+        }
+
         if (localStorage.getItem(questIdObj[selectedQuestion]) != "") {
             console.log(questIdObj[selectedQuestion] + "#opt" + localStorage.getItem(questIdObj[selectedQuestion]))
             otpAnswer($("#opt" + localStorage.getItem(questIdObj[selectedQuestion])))
+
         }
     })
 }
@@ -297,6 +320,13 @@ $("#opt4").click(() => {
     otpAnswer($("#opt4"))
 })
 
+// $("#mgmtTextArea").click(() => {
+//     if (localStorage.getItem("domain") == "Management")
+//         localStorage.setItem(questIdObj[selectedQuestion], $("#mgmtTextArea").val());
+//     // optReset([1, 2, 3])
+//     // otpAnswer($("#opt4"))
+// })
+
 function otpAnswer(ele) {
     ele.css({
         "background-color": "#D7BDE2",
@@ -368,16 +398,16 @@ function startTimer(till = 10) {
 }
 
 localStorage.setItem("domain", "")
-// onVisibilityChange(function (visible) {
-//     if (!visible) {
-//         if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
-//             alert("Uh oh! You moved out. Cancelling Test.")
-//             localStorage.setItem("domain", "")
-//             location.reload(true);
-//         }
-//     }
-//     // console.log('the page is now', visible ? 'focused' : 'unfocused');
-// });
+onVisibilityChange(function (visible) {
+    if (!visible) {
+        if (localStorage.getItem("domain") != "" && localStorage.getItem("domain") != "Design") {
+            alert("Uh oh! You moved out. Cancelling Test.")
+            localStorage.setItem("domain", "")
+            location.reload(true);
+        }
+    }
+    // console.log('the page is now', visible ? 'focused' : 'unfocused');
+});
 
 
 function onVisibilityChange(callback) {
