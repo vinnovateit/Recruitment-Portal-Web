@@ -215,7 +215,7 @@ function addListenersToQuesBtn(doc, quesBtnNo, docId, testType) {
 
         } else {
             if (localStorage.getItem("domain") == "Management") {
-                localStorage.setItem(questIdObj[selectedQuestion], $("#mgmtTextArea").val());
+                // localStorage.setItem(questIdObj[selectedQuestion], $("#mgmtTextArea").val());
                 $("#mgmtTextArea").val("")
             }
         }
@@ -320,12 +320,12 @@ $("#opt4").click(() => {
     otpAnswer($("#opt4"))
 })
 
-// $("#mgmtTextArea").click(() => {
-//     if (localStorage.getItem("domain") == "Management")
-//         localStorage.setItem(questIdObj[selectedQuestion], $("#mgmtTextArea").val());
-//     // optReset([1, 2, 3])
-//     // otpAnswer($("#opt4"))
-// })
+$("#mgmtTextArea").change(() => {
+    if (localStorage.getItem("domain") == "Management")
+        localStorage.setItem(questIdObj[selectedQuestion], $("#mgmtTextArea").val());
+    // optReset([1, 2, 3])
+    // otpAnswer($("#opt4"))
+})
 
 function otpAnswer(ele) {
     ele.css({
