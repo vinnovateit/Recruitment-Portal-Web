@@ -51,6 +51,14 @@ h1 {
     text-align: center;
 }
 
+
+h2 {
+    margin: 32px 0;
+    font-family: "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system;
+    font-weight: normal;
+    text-align: center;
+}
+
 .registration>label {
     display: block;
     margin: 1% 0;
